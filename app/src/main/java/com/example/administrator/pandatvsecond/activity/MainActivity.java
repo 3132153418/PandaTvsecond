@@ -49,15 +49,13 @@ public class MainActivity extends BaseActivity{
     @BindView(R.id.radioGroup)
     RadioGroup homeBottomGroup;
 
-    private long lastTime;//上一次点击back键的时间毫秒数
+    private long lastTime;
     public static final int HOMETYPE = 1;
 
     @Override
     protected int getLauoutId() {
         return R.layout.activity_main;
     }
-
-
 
 
     @Override
@@ -78,7 +76,7 @@ public class MainActivity extends BaseActivity{
         if(System.currentTimeMillis() - lastTime < 2000){
             finish();
         }else {
-            ToastManager.show("再按一次退出应用");
+            ToastManager.show("再按一次退出");
             lastTime = System.currentTimeMillis();
         }
     }
