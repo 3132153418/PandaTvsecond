@@ -14,6 +14,8 @@ import butterknife.Unbinder;
  * Created by Administrator on 2017/7/27.
  */
 
+
+
 public abstract class BaseFragment extends Fragment {
     protected Unbinder unbinder;
     protected Bundle bundle;
