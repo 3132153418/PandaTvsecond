@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/iconImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/panda_sign"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="10dp"/>
+        <ImageView
+            android:id="@+id/personImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/person_sign"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/titleTv"
+            android:textSize="16sp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            />
+        <ImageView
+            android:id="@+id/hudongImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hudong_sign"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/personImg"/>
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+
+    </FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/mycolor"
+        android:layout_marginBottom="3dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        >
+
+        <RadioButton
+            android:id="@+id/shouye"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:drawableTop="@drawable/shouye"
+            android:gravity="center"
+            android:background="@drawable/backcolor"
+            android:drawablePadding="-8dp"
+            android:text="首页"
+            android:layout_weight="1.00"
+           />
+
+        <RadioButton
+            android:id="@+id/pandalive_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:background="@drawable/backcolor"
+            android:drawableTop="@drawable/shouye1"
+            android:gravity="center"
+            android:drawablePadding="-8dp"
+            android:text="熊猫直播"
+            android:layout_weight="1.07" />
+
+        <RadioButton
+            android:id="@+id/gg_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:background="@drawable/backcolor"
+            android:drawablePadding="-8dp"
+            android:drawableTop="@drawable/shouye2"
+            android:gravity="center"
+            android:text="滚滚视频"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/bobao_btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:background="@drawable/backcolor"
+            android:drawablePadding="-8dp"
+            android:drawableTop="@drawable/shouye3"
+            android:gravity="center"
+            android:text="熊猫播报"
+            android:layout_weight="1" />
+
+        <RadioButton
+            android:id="@+id/live_China_Btn"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:button="@null"
+            android:background="@drawable/backcolor"
+            android:drawablePadding="-8dp"
+            android:drawableTop="@drawable/shouye4"
+            android:gravity="center"
+            android:text="直播中国"
+            android:layout_weight="1" />
+
+    </RadioGroup>
+</LinearLayout>
