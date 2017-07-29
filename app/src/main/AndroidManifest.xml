@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.pandatvsecond">
-<uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -15,6 +15,9 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.video.VideoActivity"
+            android:screenOrientation="landscape">
         </activity>
         <activity android:name=".activity.LogoActivity"/>
         <activity android:name=".activity.MainActivity"/>

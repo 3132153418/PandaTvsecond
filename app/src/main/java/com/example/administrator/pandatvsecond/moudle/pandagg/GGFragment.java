@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 import com.androidkun.PullToRefreshRecyclerView;
 import com.androidkun.callback.PullToRefreshListener;
+import android.view.View;
+
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.GGbean;
@@ -75,6 +77,8 @@ public class GGFragment extends BaseFragment implements GGContract.View {
         ggPull.addHeaderView(inflate);
     }
 
+    protected void initView(View view) {
+    }
 
     @Override
     protected void loadData() {

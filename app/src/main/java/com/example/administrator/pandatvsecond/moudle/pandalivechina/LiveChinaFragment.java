@@ -87,7 +87,6 @@ public class LiveChinaFragment extends BaseFragment implements LiveChinaContract
 
     }
 
-
     @Override
     protected void loadData() {
         presenter.start();

@@ -10,5 +10,6 @@ import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
 
 public interface HomeMoudle extends BaseModel {
 
-    void setShow(MyCallBack<HomeBean> callBack);
+    void loadHomeData(MyCallBack<HomeBean> callBack);
+
 }
