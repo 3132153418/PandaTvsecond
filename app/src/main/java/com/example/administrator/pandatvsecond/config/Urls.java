@@ -9,6 +9,8 @@ public class Urls {
 
     //首页
     public static final String PANDAHOME = BASEURL + "PAGE14501749764071042/index.json";
+//    滚滚视频
+    public static final String GGLIVE = BASEURL + "xmwh/index.json";
 
     //    熊猫直播
     public static final String shangla = BASEURL + "PAGE14501769230331752/index.json";
@@ -21,4 +23,7 @@ public class Urls {
 
     //   熊猫直播首页
     public static final String PANDAJCYK= BASEURL +"PAGE14501772263221982/index.json";
+//    直播中国tablayout
+    public static final String PANDA_LIVE_CHINA_TAB=BASEURL+"PAGE14501775094142282/index.json";
+
 }

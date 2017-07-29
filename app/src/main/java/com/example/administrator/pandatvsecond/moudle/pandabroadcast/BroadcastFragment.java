@@ -1,5 +1,7 @@
 package com.example.administrator.pandatvsecond.moudle.pandabroadcast;
 
+import android.view.View;
+
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 
@@ -16,9 +18,11 @@ public class BroadcastFragment extends BaseFragment {
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View view) {
 
     }
+
+
 
     @Override
     protected void loadData() {

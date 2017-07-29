@@ -14,4 +14,5 @@ public class SharedPreferencesManager {
         editor.putString("userInfo",userInfo);
         editor.commit();
     }
+
 }

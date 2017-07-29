@@ -1,5 +1,7 @@
 package com.example.administrator.pandatvsecond.moudle.pandahome;
 
+import android.view.View;
+
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.HomeBean;
@@ -16,10 +18,11 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View view) {
 
-        presenter.start();
     }
+
+
 
     @Override
     protected void loadData() {

@@ -56,6 +56,7 @@ public abstract class BaseFragment extends Fragment {
         this.bundle = bundle;
     }
 
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

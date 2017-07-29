@@ -1,7 +1,6 @@
 package com.example.administrator.pandatvsecond.activity;
 
-import android.support.v4.app.FragmentManager;
-
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -10,7 +9,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.administrator.pandatvsecond.R;
-
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.moudle.pandabroadcast.BroadcastFragment;
 import com.example.administrator.pandatvsecond.moudle.pandagg.GGFragment;
@@ -18,11 +16,10 @@ import com.example.administrator.pandatvsecond.moudle.pandahome.HomeFragment;
 import com.example.administrator.pandatvsecond.moudle.pandahome.HomePresenter;
 import com.example.administrator.pandatvsecond.moudle.pandalive.LiveFragment;
 import com.example.administrator.pandatvsecond.moudle.pandalivechina.LiveChinaFragment;
+import com.example.administrator.pandatvsecond.util.MineLog;
 import com.example.administrator.pandatvsecond.widget.manager.ToastManager;
 
-
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity{
@@ -98,6 +95,8 @@ public class MainActivity extends BaseActivity{
             case R.id.gg_btn:
                 showTitle("滚滚视频",0);
                 changeFragment(GGFragment.class,R.id.frameLayout,true,null,false);
+                MineLog.d("gg","fdd");
+                Log.d("fg","dsfd");
                 break;
             case R.id.bobao_btn:
                 showTitle("熊猫播报",0);

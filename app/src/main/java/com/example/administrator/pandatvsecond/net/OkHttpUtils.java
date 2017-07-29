@@ -1,8 +1,8 @@
 package com.example.administrator.pandatvsecond.net;
 
+import android.util.Log;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
 import com.google.gson.Gson;
@@ -29,7 +29,7 @@ public class OkHttpUtils implements Ihttp {
     private OkHttpClient okHttpClient;
     public OkHttpUtils(){
 
-
+        this.okHttpClient = new OkHttpClient.Builder().build();
     }
     public static OkHttpUtils getInstance(){
         if (okHttpUtils == null){
@@ -60,10 +60,13 @@ public class OkHttpUtils implements Ihttp {
             }
             url = sb.deleteCharAt(sb.length()-1).toString();
         }
+
         Request request = new Request.Builder().url(url).build();
         okHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
+                Log.d("OkHttpUtils", "执行了网络请求失败");
+
                 App.context.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -76,6 +79,8 @@ public class OkHttpUtils implements Ihttp {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
+                Log.d("OkHttpUtils", "执行了网络请求成功");
+
                 final String jsonData = response.body().string();
                 //执行在子线程中
                 App.context.runOnUiThread(new Runnable() {
@@ -167,6 +172,7 @@ public class OkHttpUtils implements Ihttp {
                     public void run() {
                         //执行在主线程
                         callBack.onError(e.getMessage().toString());
+
                     }
                 });
 
