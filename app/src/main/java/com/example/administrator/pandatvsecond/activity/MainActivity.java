@@ -1,5 +1,6 @@
 package com.example.administrator.pandatvsecond.activity;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.administrator.pandatvsecond.R;
 
+import com.example.administrator.pandatvsecond.activity.video.VideoActivity;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.moudle.pandabroadcast.BroadcastFragment;
 import com.example.administrator.pandatvsecond.moudle.pandagg.GGFragment;

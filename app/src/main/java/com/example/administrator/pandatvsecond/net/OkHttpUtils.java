@@ -29,7 +29,7 @@ public class OkHttpUtils implements Ihttp {
     private OkHttpClient okHttpClient;
     public OkHttpUtils(){
 
-
+        okHttpClient = new OkHttpClient.Builder().build();
     }
     public static OkHttpUtils getInstance(){
         if (okHttpUtils == null){
@@ -44,6 +44,7 @@ public class OkHttpUtils implements Ihttp {
     }
     @Override
     public <T> void get(String url, MyCallBack<T> callBack) {
+
 
     }
 
