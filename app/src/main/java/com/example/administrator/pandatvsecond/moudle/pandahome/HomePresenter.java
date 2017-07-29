@@ -4,6 +4,7 @@ import com.example.administrator.pandatvsecond.model.bean.HomeBean;
 import com.example.administrator.pandatvsecond.model.biz.HomeMoudle;
 import com.example.administrator.pandatvsecond.model.biz.HomeMoudleImpl;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
+import com.example.administrator.pandatvsecond.util.MineLog;
 
 /**
  * Created by Administrator on 2017/7/28.
@@ -20,16 +21,16 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void start() {
-
-        homeMoudle.setShow(new MyCallBack<HomeBean>() {
+        homeMoudle.loadHomeData(new MyCallBack<HomeBean>() {
             @Override
             public void onSusses(HomeBean homeBean) {
+                MineLog.d("Home", "网络请求回调成功");
                 homeView.setResult(homeBean);
             }
 
             @Override
             public void onError(String msg) {
-
+                MineLog.d("Home", "网络请求回调失败"+msg);
             }
         });
     }

@@ -10,8 +10,7 @@ import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
 
 public class HomeMoudleImpl implements HomeMoudle{
     @Override
-    public void setShow(MyCallBack<HomeBean> callBack) {
-
-        ihttp.get(Urls.PANDAHOME,callBack);
+    public void loadHomeData(MyCallBack<HomeBean> callBack) {
+        ihttp.get(Urls.PANDAHOME,null,callBack);
     }
 }

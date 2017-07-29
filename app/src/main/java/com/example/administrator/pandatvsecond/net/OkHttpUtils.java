@@ -2,7 +2,6 @@ package com.example.administrator.pandatvsecond.net;
 
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
 import com.google.gson.Gson;
@@ -28,8 +27,7 @@ public class OkHttpUtils implements Ihttp {
     private static OkHttpUtils okHttpUtils;
     private OkHttpClient okHttpClient;
     public OkHttpUtils(){
-
-
+        okHttpClient = new OkHttpClient.Builder().build();
     }
     public static OkHttpUtils getInstance(){
         if (okHttpUtils == null){

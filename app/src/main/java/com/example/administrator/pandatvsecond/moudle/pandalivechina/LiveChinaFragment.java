@@ -1,5 +1,7 @@
 package com.example.administrator.pandatvsecond.moudle.pandalivechina;
 
+import android.view.View;
+
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 
@@ -15,7 +17,7 @@ public class LiveChinaFragment extends BaseFragment{
     }
 
     @Override
-    protected void initView() {
+    protected void initView(View view) {
 
     }
 
