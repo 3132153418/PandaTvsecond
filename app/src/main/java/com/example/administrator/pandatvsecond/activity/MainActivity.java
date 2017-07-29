@@ -84,6 +84,9 @@ public class MainActivity extends BaseActivity{
     }
     @OnClick({R.id.personImg, R.id.hudongImg, R.id.shouye, R.id.pandalive_btn, R.id.gg_btn, R.id.bobao_btn, R.id.live_China_Btn})
     public void onViewClicked(View view) {
+
+
+
         switch (view.getId()) {
             case R.id.personImg:
                 break;
