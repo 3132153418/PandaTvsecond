@@ -19,7 +19,6 @@ public class GGFragment extends BaseFragment{
 
     @Override
     protected void initView(View view) {
-
     }
 
     @Override

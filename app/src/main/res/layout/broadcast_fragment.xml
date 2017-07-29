@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:text="asfsafsafsa"
-        android:textSize="50sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+<com.androidkun.PullToRefreshRecyclerView
+    android:id="@+id/broadcast_PullRecy"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</com.androidkun.PullToRefreshRecyclerView>
 </LinearLayout>

@@ -2,6 +2,7 @@ package com.example.administrator.pandatvsecond.net;
 
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
 import com.google.gson.Gson;

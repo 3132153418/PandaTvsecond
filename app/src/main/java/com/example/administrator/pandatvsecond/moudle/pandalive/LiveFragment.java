@@ -1,10 +1,13 @@
 package com.example.administrator.pandatvsecond.moudle.pandalive;
 
 import android.view.View;
+import android.widget.TableLayout;
 
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.LiveBean;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/7/28.
@@ -19,7 +22,7 @@ public class LiveFragment extends BaseFragment implements LiveContract.View{
     }
 
     @Override
-    protected void initView(View view) {
+    protected void initView() {
 
         presenter.start();
     }
