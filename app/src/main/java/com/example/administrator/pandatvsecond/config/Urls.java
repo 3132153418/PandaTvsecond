@@ -14,6 +14,12 @@ public class Urls {
 
     //熊猫播报
     public static final String PAPERLDATA = BASEURL + "xmwh/index.json";
+//直播中国
+    public static final String PANDA_LIVE_CHINA_TAB=BASEURL+"PAGE14501775094142282/index.json";
+
+
+
+
 
     //视频播放
     public static final String VADIOPATH = "http://vdn.apps.cntv.cn/api/getVideoInfoForCBox.do";
