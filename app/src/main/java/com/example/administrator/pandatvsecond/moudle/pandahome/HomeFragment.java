@@ -1,8 +1,18 @@
 package com.example.administrator.pandatvsecond.moudle.pandahome;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.View;
+
 import com.example.administrator.pandatvsecond.R;
+import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.HomeBean;
+import com.example.administrator.pandatvsecond.moudle.pandahome.adapter.HomeRecycleviewAdapter;
+import com.example.administrator.pandatvsecond.util.MineLog;
+import com.example.administrator.pandatvsecond.widget.manager.LoadingDialog;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2017/7/28.

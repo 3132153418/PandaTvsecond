@@ -1,23 +1,39 @@
 package com.example.administrator.pandatvsecond.moudle.pandabroadcast;
 
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.androidkun.PullToRefreshRecyclerView;
+import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
+import com.example.administrator.pandatvsecond.model.bean.BroadcastBean;
+import com.example.administrator.pandatvsecond.moudle.pandabroadcast.adapter.BroadcastAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/7/28.
  */
 
-public class BroadcastFragment extends BaseFragment {
+public class BroadcastFragment extends BaseFragment implements BroadcastContract.View{
 
-
+    private List<BroadcastBean.ListBean> list = new ArrayList<>();
+    private ImageView imageView;
+    private TextView textView;
+    private PullToRefreshRecyclerView pullToRefreshRecyclerView;
+    private BroadcastContract.Presenter presenter;
+    private View inflat;
     @Override
     protected int getLayoutId() {
         return R.layout.broadcast_fragment;
     }
 
-     {
+
     protected void initView(View view) {
 
         new BroadcastPresenter(this);
@@ -74,7 +90,7 @@ public class BroadcastFragment extends BaseFragment {
         textView.setText(broadcastBean.getBigImg().get(0).getTitle());
         List<BroadcastBean.ListBean> listBean = broadcastBean.getList();
         list.addAll(listBean);
-        adapter = new BroadcastAdapter(list, getContext());
+        BroadcastAdapter adapter = new BroadcastAdapter(list, getContext());
         pullToRefreshRecyclerView.setAdapter(adapter);
     }
 
