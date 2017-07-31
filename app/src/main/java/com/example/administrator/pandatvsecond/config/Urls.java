@@ -43,25 +43,25 @@ public class Urls {
 
 
     //    精彩一刻after
-    public static final String LIVE_BASEURL = "http://api.cntv.cn/video/videolistById";
+    public static final String GOODTIME = "http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1";
     //当熊不让（没有）
     public static final String DXBR="http://api.cntv.cn/video/videolistById?vsid=VSET100332640004&n=7&serviceId=panda&o=desc&of=time&p=1";
     //    超萌滚滚秀
     public static final String CMGGSHOW = "http://api.cntv.cn/video/videolistById?vsid=VSET100272959126&n=7&serviceId=panda&o=desc&of=time&p=1";
     //    熊猫档案
-    public static final String ZX = "http://api.cntv.cn/video/videolistById?vsid=VSET100340574858&n=7&serviceId=panda&o=desc&of=time&p=1";
+    public static final String XMDA = "http://api.cntv.cn/video/videolistById?vsid=VSET100340574858&n=7&serviceId=panda&o=desc&of=time&p=1";
     //    熊猫TOP榜VSET100237714751
-    public static final String WE = "http://api.cntv.cn/video/videolistById?vsid=VSET100284428835&n=7&serviceId=panda&o=desc&of=time&p=1";
+    public static final String XMTOPBANG = "http://api.cntv.cn/video/videolistById?vsid=VSET100284428835&n=7&serviceId=panda&o=desc&of=time&p=1";
     //    熊猫那些事
     public static final String QS = "http://api.cntv.cn/video/videolistById?vsid=&n=7&serviceId=panda&o=desc&of=time&p=1";
     //    特别节目
-    public static final String DS = "http://api.cntv.cn/video/videolistById?vsid=VSET100167308855&n=7&serviceId=panda&o=desc&of=time&p=1";
+    public static final String TBJM = "http://api.cntv.cn/video/videolistById?vsid=VSET100167308855&n=7&serviceId=panda&o=desc&of=time&p=1";
     //    原创新闻
-    public static final String XC = "    http://api.cntv.cn/video/videolistById?vsid=VSET100219009515&n=7&serviceId=panda&o=desc&of=time&p=1";
+    public static final String YCXW = "http://api.cntv.cn/video/videolistById?vsid=VSET100219009515&n=7&serviceId=panda&o=desc&of=time&p=1";
 
 
     //精彩一刻
-//    http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1
+//
 
 
 
