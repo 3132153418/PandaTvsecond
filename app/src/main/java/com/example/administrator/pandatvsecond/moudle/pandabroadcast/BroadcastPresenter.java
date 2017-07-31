@@ -1,5 +1,7 @@
 package com.example.administrator.pandatvsecond.moudle.pandabroadcast;
 
+import android.graphics.drawable.Drawable;
+
 import com.example.administrator.pandatvsecond.model.bean.BroadcastBean;
 import com.example.administrator.pandatvsecond.model.biz.BroadcastMoudle;
 import com.example.administrator.pandatvsecond.model.biz.BroadcastMoudleImpl;
@@ -24,8 +26,18 @@ public class BroadcastPresenter implements BroadcastContract.Presenter {
 
         broadcastMoudle.setBroadcast(new MyCallBack<BroadcastBean>() {
             @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
             public void onSusses(BroadcastBean broadcastBean) {
                 broadcastView.setResult(broadcastBean);
+            }
+
+            @Override
+            public void onsusses(String string) {
+
             }
 
             @Override

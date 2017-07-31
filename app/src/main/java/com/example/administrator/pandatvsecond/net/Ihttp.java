@@ -11,9 +11,12 @@ import java.util.Map;
  */
 
 public interface Ihttp {
+
     <T>void get(String url, MyCallBack<T> callBack);
     <T>void get(String url,Map<String,String> params, MyCallBack<T> callBack);
     <T>void get(String url,Map<String,String> params, Map<String,String> heards,MyCallBack<T> callBack);
+    <T>void loginPost(String url,Map<String,String> params, Map<String,String> heards,MyCallBack<T> callBack);
+    <T>void registerPost(String url,Map<String,String> params, Map<String,String> heards,MyCallBack<T> callBack);
     <T>void post(String url,MyCallBack<T> callBack);
     <T>void post(String url,Map<String,String> params, MyCallBack<T> callBack);
     <T>void post(String url,Map<String,String> params, Map<String,String> heards,MyCallBack<T> callBack);

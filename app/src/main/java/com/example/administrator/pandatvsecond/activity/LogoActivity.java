@@ -1,15 +1,13 @@
 package com.example.administrator.pandatvsecond.activity;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
+import android.content.Intent;
 
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.widget.manager.SharedPreferencesManager;
 
 /**
- * Created by Administrator on 2017/7/27.
+*每次进入app先看到的logo
  */
 
 public class LogoActivity extends BaseActivity {
@@ -26,6 +24,17 @@ public class LogoActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+
+        String userInfo = SharedPreferencesManager.getUserInfo();
+        if(userInfo.equals("")) {
+            Intent intent = new Intent(LogoActivity.this, SplashActivity.class);
+            startActivity(intent);
+            finish();
+        }else {
+            Intent intentTwo = new Intent(LogoActivity.this, MainActivity.class);
+            startActivity(intentTwo);
+            finish();
+        }
 
     }
 }
