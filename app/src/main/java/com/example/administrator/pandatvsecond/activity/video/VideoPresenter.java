@@ -1,5 +1,7 @@
 package com.example.administrator.pandatvsecond.activity.video;
 
+import android.graphics.drawable.Drawable;
+
 import com.example.administrator.pandatvsecond.model.bean.VideoJingCaiBean;
 import com.example.administrator.pandatvsecond.model.biz.VideoMoudle;
 import com.example.administrator.pandatvsecond.model.biz.VideoMoudleImpl;
@@ -26,8 +28,18 @@ public class VideoPresenter implements VideoContract.Presenter {
     public void setJcVideo(String pid) {
         videoMoudle.setVideoJc(pid, new MyCallBack<VideoJingCaiBean>() {
             @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
             public void onSusses(VideoJingCaiBean videoJingCaiBean) {
                 videoView.setResult(videoJingCaiBean);
+            }
+
+            @Override
+            public void onsusses(String string) {
+
             }
 
             @Override

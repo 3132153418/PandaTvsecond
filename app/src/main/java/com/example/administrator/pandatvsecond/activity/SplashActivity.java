@@ -1,7 +1,6 @@
 package com.example.administrator.pandatvsecond.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +9,13 @@ import android.widget.ImageView;
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.activity.adapter.FragmentAdapter;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
+import com.example.administrator.pandatvsecond.widget.manager.SharedPreferencesManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/6/14.
+ * 引导页
  */
 
 public class SplashActivity extends BaseActivity {
@@ -23,7 +23,6 @@ public class SplashActivity extends BaseActivity {
     private List<ImageView> list = new ArrayList<>();
     private FragmentAdapter adapter;
     private int[] imgs = {R.drawable.guide_one,R.drawable.guide_two,R.drawable.guide_three};
-    private SharedPreferences mShared;
 
     @Override
     protected void initView() {
@@ -45,8 +44,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     public void addViewPager(){
-        mShared = getSharedPreferences("data", MODE_PRIVATE);
-        final SharedPreferences.Editor editor = mShared.edit();
+
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
         ImageView img1 = new ImageView(this);
         img1.setLayoutParams(params);
@@ -60,8 +58,7 @@ public class SplashActivity extends BaseActivity {
         img3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                editor.putString("uid", "1");
-                editor.commit();
+                SharedPreferencesManager.saveUserInfo("uid");
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
