@@ -39,10 +39,16 @@ public class VideoActivity extends BaseActivity implements VideoContract.View {
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         JCVideoPlayer.releaseAllVideos();
     }
+
+    //    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        JCVideoPlayer.releaseAllVideos();
+//    }
 
     @Override
     public void setResult(final VideoJingCaiBean videoJingCaiBean) {

@@ -11,12 +11,18 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
@@ -38,7 +44,10 @@ dependencies {
     compile 'com.youth.banner:banner:1.4.9'
     compile 'com.androidkun:pulltorefreshrecyclerview:1.0.6'
     compile project(':jcvideoplayer-lib')
-    compile 'com.android.support:design:25.3.1'
+//    compile 'com.android.support:design:25.3.1'
     compile 'com.androidkun:pulltorefreshrecyclerview:1.0.6'
     compile 'com.youth.banner:banner:1.4.9'
+    compile project(':PushSDK')
+    compile 'com.umeng.analytics:analytics:latest.integration'
+
 }
