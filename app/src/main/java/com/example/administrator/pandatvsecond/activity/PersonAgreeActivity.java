@@ -15,6 +15,9 @@ import butterknife.OnClick;
  * Created by lenovo on 2017/7/31.
  */
 public class PersonAgreeActivity extends BaseActivity {
+
+
+
     @BindView(R.id.agree_post_back)
     Button agreePostBack;
     @BindView(R.id.agree_post_text)

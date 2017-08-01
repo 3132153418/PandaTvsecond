@@ -16,6 +16,7 @@ import com.example.administrator.pandatvsecond.moudle.mine.register.PhoneFragmen
  * Created by lenovo on 2017/7/31.
  */
 public class RegisterActivity extends BaseActivity  implements View.OnClickListener{
+
     private Button phone, emile;
     private PhoneFragment phoneFragment = null;
     private EmileFragment emileFragment = null;

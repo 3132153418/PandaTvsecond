@@ -20,6 +20,8 @@ import butterknife.OnClick;
  */
 
 public class PersonCenterActivity extends Activity {
+
+
     @BindView(R.id.backImg)
     ImageView backImg;
     @BindView(R.id.titleTv)
