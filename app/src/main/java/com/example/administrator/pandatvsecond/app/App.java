@@ -19,8 +19,6 @@ public class App extends Application {
         super.onCreate();
 
 
-
-
         PushAgent mPushAgent = PushAgent.getInstance(this);
 //注册推送服务，每次调用register方法都会回调该接口
         mPushAgent.register(new IUmengRegisterCallback() {
