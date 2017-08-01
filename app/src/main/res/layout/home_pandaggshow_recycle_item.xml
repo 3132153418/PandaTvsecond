@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="91dp"
+    android:orientation="vertical">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="90dp">
+    <ImageView
+        android:src="@mipmap/ic_launcher"
+        android:layout_margin="5dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/iv_pandaggshow_recycler"
+        android:layout_weight="2"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="80dp">
+        <TextView
+            android:id="@+id/tv_pandaggshow_recycler_title"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:text="daoinmiodmoipdma"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+        <TextView
+            android:id="@+id/tv_pandaggshow_recycler_time"
+            android:layout_weight="1"
+            android:gravity="bottom"
+            android:text="2017-07-26"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+    </LinearLayout>
+</LinearLayout>
+    <View
+        android:layout_marginTop="2dp"
+        android:id="@+id/view_pandapager"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C8C8CD"></View>
+
+
+
+</LinearLayout>

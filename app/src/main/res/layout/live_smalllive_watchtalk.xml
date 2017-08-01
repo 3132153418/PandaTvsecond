@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <EditText
+            android:hint="添加评论。。。"
+            android:gravity="left"
+            android:textColor="#EEEEF4"
+            android:layout_margin="5dp"
+            android:layout_weight="3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/edt_smalllive_watchtalk"
+            android:background="@drawable/edit_bg"/>
+        <Button
+            android:layout_margin="5dp"
+            android:id="@+id/btn_smalllive_watchtalk"
+            android:layout_weight="1"
+            android:text="发送"
+            android:textStyle="bold"
+            android:background="@color/tabcolor"
+            android:textColor="@color/white"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/recyclerview_smalllive_watchtalk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+</LinearLayout>
