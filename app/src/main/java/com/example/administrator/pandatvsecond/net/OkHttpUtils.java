@@ -80,7 +80,7 @@ public class OkHttpUtils implements Ihttp {
                     @Override
                     public void run() {
                         //执行在主线程
-                        callBack.onError(e.getMessage().toString());
+                        callBack.onError(e.getMessage());
                     }
                 });
 

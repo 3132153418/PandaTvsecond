@@ -141,7 +141,7 @@ public class SmallLiveFragment extends LiveBaseFragment implements LiveContract.
         MineLog.d("SmallLiveFragment",baseFragments.size()+"");
         nopager_smalllivefragment.setAdapter(smallLiveFragmentAdapter);
         tab_smalllivefragment.setupWithViewPager(nopager_smalllivefragment);
-//        smallLiveFragmentAdapter.notifyDataSetChanged();
+
     }
 
     @Override
