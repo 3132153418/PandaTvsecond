@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:text="邮箱注册需要激活后才能登录"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15dp"/>
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="370dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:background="#fff"
+        android:hint="账号：请输入邮箱"
+        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/et_email_gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:textColor="#ff0000"
+        android:visibility="gone"
+        />
+
+    <EditText
+        android:id="@+id/et_emailpsw"
+        android:layout_width="370dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:background="#fff"
+        android:hint="请输入密码"
+        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:password="true"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/et_emailpsw_gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="密码为空"
+        android:textColor="#ff0000"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/et_emailquerenpsw"
+        android:layout_width="370dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:background="#fff"
+        android:hint="请确认密码"
+        android:paddingBottom="10dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:password="true"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:id="@+id/et_emailquerenpsw_gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="确认密码不能为空"
+        android:textColor="#ff0000"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="25dp">
+
+        <EditText
+            android:id="@+id/et_emailpictureyanzheng"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:hint="请输入图片验证码"
+            android:paddingBottom="10dp"
+            android:paddingLeft="5dp"
+            android:paddingTop="10dp"
+            android:textSize="15dp"/>
+
+        <ImageView
+            android:id="@+id/email_image"
+            android:layout_width="90dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="15dp"
+            android:scaleType="fitXY"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/gou_agree"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gou_argee"
+            android:button="@null"
+            />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#1d1dec"
+            android:text="我已阅读并同意《央视网网络服务歇息》"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_emailregister"
+        android:layout_width="370dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorPrimary"
+        android:text="注册"
+        android:textColor="#fff"
+        android:textSize="16dp"/>
+
+</LinearLayout>
