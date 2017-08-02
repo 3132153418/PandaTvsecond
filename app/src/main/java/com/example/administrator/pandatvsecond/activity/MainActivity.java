@@ -1,5 +1,6 @@
 package com.example.administrator.pandatvsecond.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -8,6 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.administrator.pandatvsecond.R;
+import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.moudle.pandabroadcast.BroadcastFragment;
 import com.example.administrator.pandatvsecond.moudle.pandagg.GGFragment;
@@ -59,6 +61,12 @@ public class MainActivity extends BaseActivity{
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        App.context = this;
+    }
+
+    @Override
     protected void initView() {
         HomeFragment homeFragment = (HomeFragment) changeFragment(HomeFragment.class,R.id.frameLayout,true,null,false);
         new HomePresenter(homeFragment);
@@ -80,8 +88,8 @@ public class MainActivity extends BaseActivity{
 
         switch (view.getId()) {
             case R.id.personImg:
-//          Intent intent = new Intent(MainActivity.this, PersonCenterActivity.class);
-//          startActivity(intent);
+          Intent intent = new Intent(MainActivity.this, PersonCenterActivity.class);
+          startActivity(intent);
                 break;
             case R.id.hudongImg:
                 break;

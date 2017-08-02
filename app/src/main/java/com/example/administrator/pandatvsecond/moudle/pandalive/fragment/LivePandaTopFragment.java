@@ -40,7 +40,7 @@ public class LivePandaTopFragment extends LiveBaseFragment  implements LiveContr
     protected void initView(View view) {
         new LivePresenter(this);//关联Presenter层对象
         pandatop_recyclerview = (XRecyclerView) view.findViewById(R.id.pandatop_recyclerview);
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         pandatop_recyclerview.setLayoutManager(manager);
         pandatop_recyclerview.setPullRefreshEnabled(true);
@@ -121,7 +121,7 @@ public class LivePandaTopFragment extends LiveBaseFragment  implements LiveContr
 
     @Override
     public void showProgress() {
-        LoadingDialog.show(getContext());
+        LoadingDialog.show(getActivity());
     }
 
     @Override

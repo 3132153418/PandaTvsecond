@@ -40,7 +40,7 @@ public class LiveEspeciallyShowFragment extends LiveBaseFragment implements Live
     protected void initView(View view) {
         new LivePresenter(this);//关联Presenter层对象
         especiallyshow_recyclerview = (XRecyclerView) view.findViewById(R.id.especiallyshow_recyclerview);
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         especiallyshow_recyclerview.setLayoutManager(manager);
         especiallyshow_recyclerview.setPullRefreshEnabled(true);
@@ -121,7 +121,7 @@ public class LiveEspeciallyShowFragment extends LiveBaseFragment implements Live
 
     @Override
     public void showProgress() {
-        LoadingDialog.show(getContext());
+        LoadingDialog.show(getActivity());
     }
 
     @Override

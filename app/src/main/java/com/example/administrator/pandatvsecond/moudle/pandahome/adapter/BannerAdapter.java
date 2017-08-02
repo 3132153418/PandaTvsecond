@@ -34,9 +34,10 @@ public class BannerAdapter extends PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
+    public Object instantiateItem(ViewGroup container, final int position) {
         ImageView imageView = imgs.get(position);
         container.addView(imageView);
         return imageView;
     }
+
 }

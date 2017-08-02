@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -33,12 +34,19 @@ public class PandaLiveChinaAdapter extends RecyclerView.Adapter<PandaLiveChinaAd
     }
 
     @Override
-    public void onBindViewHolder(ViewHoler holder, int position) {
+    public void onBindViewHolder(ViewHoler holder, final int position) {
         String title = list2.get(position).getTitle();
         String image = list2.get(position).getImage();
         Glide.with(context).load(image).into(holder.iv_pandalivechina_recycler);
         holder.tv_pandalivechina_recycler.setText(title);
+        LinearLayout linearLayout = (LinearLayout) holder.itemView.findViewById(R.id.pandaLiveChina);
 
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setOnItemListener.setOnItemListener(position);
+            }
+        });
     }
 
     @Override
@@ -57,5 +65,12 @@ public class PandaLiveChinaAdapter extends RecyclerView.Adapter<PandaLiveChinaAd
             tv_pandalivechina_recycler = (TextView) itemView.findViewById(R.id.tv_pandalivechina_recycler);
 
         }
+    }
+    public PandaLiveShowAdapter.SetOnItemListener setOnItemListener;
+    public void setonClickListener(PandaLiveShowAdapter.SetOnItemListener setOnItemListener){
+        this.setOnItemListener=setOnItemListener;
+    }
+    public interface SetOnItemListener{
+        void setOnItemListener(int postion);
     }
 }

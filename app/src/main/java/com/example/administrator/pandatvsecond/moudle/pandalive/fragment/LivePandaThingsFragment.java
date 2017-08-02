@@ -40,7 +40,7 @@ public class LivePandaThingsFragment extends LiveBaseFragment implements LiveCon
     protected void initView(View view) {
         new LivePresenter(this);//关联Presenter层对象
         pandathings_recyclerview = (XRecyclerView) view.findViewById(R.id.pandathings_recyclerview);
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         pandathings_recyclerview.setLayoutManager(manager);
         pandathings_recyclerview.setPullRefreshEnabled(true);
@@ -121,7 +121,7 @@ public class LivePandaThingsFragment extends LiveBaseFragment implements LiveCon
 
     @Override
     public void showProgress() {
-        LoadingDialog.show(getContext());
+        LoadingDialog.show(getActivity());
     }
 
     @Override

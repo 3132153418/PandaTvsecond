@@ -1,5 +1,6 @@
 package com.example.administrator.pandatvsecond.moudle.pandagg;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.GGbean;
 import com.example.administrator.pandatvsecond.moudle.pandagg.adapter.GGAdapter;
 import com.example.administrator.pandatvsecond.moudle.pandagg.adapter.GlideImageLoader;
+import com.example.administrator.pandatvsecond.moudle.pandagg.ggwebactivity.GGWebViewActivity;
 import com.example.administrator.pandatvsecond.util.MineLog;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -27,7 +29,7 @@ import butterknife.ButterKnife;
  * 滚滚视频
  */
 
-public class GGFragment extends BaseFragment implements GGContract.View {
+public class GGFragment extends BaseFragment implements GGContract.View{
 
     @BindView(R.id.gg_pull)
     PullToRefreshRecyclerView ggPull;
@@ -70,9 +72,10 @@ public class GGFragment extends BaseFragment implements GGContract.View {
                 }, 2000);
             }
         });
-        View inflate = View.inflate(getContext(), R.layout.gg_header, null);
+        View inflate = View.inflate(getActivity(), R.layout.gg_header, null);
         bannerheader = (Banner) inflate.findViewById(R.id.gg_banner);
         ggPull.addHeaderView(inflate);
+
     }
 
     
@@ -115,12 +118,31 @@ public class GGFragment extends BaseFragment implements GGContract.View {
 
 
         gglist.addAll(gGbean.getList());
-        ggAdapter = new GGAdapter(getContext(), gglist);
+        ggAdapter = new GGAdapter(getActivity(), gglist);
 
         MineLog.d("ggadapter", gglist.toString());
         ggPull.setAdapter(ggAdapter);
         ggAdapter.notifyDataSetChanged();
 
+        ggAdapter.setonClickListener(new GGAdapter.SetOnItemListener() {
+            @Override
+            public void setOnItemListener(GGbean.ListBean listBean) {
+                String url = listBean.getUrl();
+                String title = listBean.getTitle();
+                String brief = listBean.getBrief();
+                String pid = listBean.getId();
+                String image = listBean.getImage();
+                Intent in = new Intent(getActivity(),GGWebViewActivity.class);
+                in.putExtra("url",url);
+                in.putExtra("title",title);
+                in.putExtra("brief",brief);
+                in.putExtra("pid",pid);
+                in.putExtra("image",image);
+                startActivity(in);
+
+
+            }
+        });
 
     }
 

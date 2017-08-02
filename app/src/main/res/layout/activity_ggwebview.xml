@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/jcVideoPlayerStandard">
+
+    </fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="首播时间："
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="栏目介绍："
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"/>
+        <ImageView
+            android:id="@+id/checkbox_Image_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/lives"
+           android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="这是一档每周五更新的盘点类节目，每周盘点近期最萌、最酷、最搞笑的直播精彩画面"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/checkbox_Image_Btn"
+            android:layout_marginLeft="15dp"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="高清完整"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/mycolor"
+            android:layout_marginTop="10dp"/>
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/ggWeb_Xrecycler">
+
+        </com.jcodecraeer.xrecyclerview.XRecyclerView>
+    </LinearLayout>
+
+
+</LinearLayout>
