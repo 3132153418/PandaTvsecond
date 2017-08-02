@@ -10,6 +10,7 @@ import com.example.administrator.pandatvsecond.model.bean.OriginalBean;
  */
 
 public interface OriginalContract {
+//    挂号费结核杆菌
     interface View extends BaseView<Presenter> {
         void setResoust(OriginalBean originalBean);
     }

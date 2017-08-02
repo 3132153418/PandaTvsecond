@@ -16,7 +16,7 @@ import com.example.administrator.pandatvsecond.util.ACache;
 
 public class OriginalPresenter implements OriginalContract.Presenter {
     OriginalContract.View view;
-
+//烦得很规范化附近你
     OriginaMoudle originaMoudle;
     private ACache aCache= ACache.get(App.context);
     public OriginalPresenter(OriginalContract.View view){

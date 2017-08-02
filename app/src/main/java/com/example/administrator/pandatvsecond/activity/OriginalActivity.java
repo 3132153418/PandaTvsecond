@@ -30,6 +30,7 @@ public class OriginalActivity extends BaseActivity implements OriginalContract.V
     @Override
     protected int getLauoutId() {
         return R.layout.activity_original;
+//        股份合格后就一个
     }
 
     @Override

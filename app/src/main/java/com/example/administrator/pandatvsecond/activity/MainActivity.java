@@ -85,6 +85,7 @@ public class MainActivity extends BaseActivity{
                 startActivity(new Intent(MainActivity.this, PersonCenterActivity.class));
                 break;
             case R.id.hudongImg:
+//                首套房水调歌头如附件一天
                 startActivity(new Intent(App.context, OriginalActivity.class));
                 break;
             case R.id.shouye:
