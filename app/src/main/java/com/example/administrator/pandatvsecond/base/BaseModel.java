@@ -10,4 +10,5 @@ import com.example.administrator.pandatvsecond.net.OkHttpFactroy;
 public interface BaseModel {
     public static Ihttp ihttp = OkHttpFactroy.onCreate();
 
+
 }

@@ -33,17 +33,20 @@ public class Urls {
 
     public static final String LOGIN = "https://reg.cntv.cn/login/login.action";
 
-
+    //直播的集合
+    public static final String LIVEFRAGMENTDATA = "http://www.ipanda.com/kehuduan/PAGE14501772263221982/index.json";
     //熊猫直播
-    public static final String PANDALIVE = BASEURL + "PAGE14501769230331752/index.json";
+    public static final String PANDALIVE = "http://www.ipanda.com/kehuduan/PAGE14501769230331752/index.json";
     //    多视角直播
     public static final String MOREVIEWLIVE = BASEURL + "PAGE14501769230331752/PAGE14501787896813312/index.json";
     //    表看錶聊
     public static final String BIANKANBIANLIAO = "http://newcomment.cntv.cn/comment/list";
 
+    public static final String LIVE_COMMON_START = "http://api.cntv.cn/video/videolistById?vsid=";
+    public static final String LIVE_COMMON_END = "&n=7&serviceId=panda&o=desc&of=time&p=";
 
     //    精彩一刻after
-    public static final String GOODTIME = "http://api.cntv.cn/video/videolistById?vsid=VSET100167216881&n=7&serviceId=panda&o=desc&of=time&p=1";
+    public static final String GOODTIME = "VSET1001672168811";
     //当熊不让（没有）
     public static final String DXBR="http://api.cntv.cn/video/videolistById?vsid=VSET100332640004&n=7&serviceId=panda&o=desc&of=time&p=1";
     //    超萌滚滚秀
@@ -62,6 +65,7 @@ public class Urls {
 
     //滚滚webview
     public static final String VEDIOCULTURE = "http://api.cntv.cn/video/videolistById?p=1&serviceId=panda&n=150&vsid=VSET100311356635 ";
+    public static final String PANDAORIGINAL = BASEURL+"PAGE14501767715521482/index.json";
     //精彩一刻
 //
 

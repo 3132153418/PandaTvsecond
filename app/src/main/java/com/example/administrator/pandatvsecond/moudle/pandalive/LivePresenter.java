@@ -2,16 +2,11 @@ package com.example.administrator.pandatvsecond.moudle.pandalive;
 
 import android.graphics.drawable.Drawable;
 
-import com.example.administrator.pandatvsecond.model.bean.EspeciallyShowBean;
-import com.example.administrator.pandatvsecond.model.bean.GGShowBean;
-import com.example.administrator.pandatvsecond.model.bean.GoodTimeBean;
-import com.example.administrator.pandatvsecond.model.bean.LiveFragmentBean;
-import com.example.administrator.pandatvsecond.model.bean.MoreEyeBean;
-import com.example.administrator.pandatvsecond.model.bean.NoBearBean;
-import com.example.administrator.pandatvsecond.model.bean.OriginalNewsBean;
-import com.example.administrator.pandatvsecond.model.bean.PandaFileBean;
-import com.example.administrator.pandatvsecond.model.bean.PandaTopBean;
-import com.example.administrator.pandatvsecond.model.bean.WatchTalkBean;
+import com.example.administrator.pandatvsecond.model.bean.live.AllLiveFragmentBean;
+import com.example.administrator.pandatvsecond.model.bean.live.LiveCommonBean;
+import com.example.administrator.pandatvsecond.model.bean.live.LiveFragmentBean;
+import com.example.administrator.pandatvsecond.model.bean.live.MoreEyeBean;
+import com.example.administrator.pandatvsecond.model.bean.live.WatchTalkBean;
 import com.example.administrator.pandatvsecond.model.biz.LiveMoudle;
 import com.example.administrator.pandatvsecond.model.biz.LiveMoudleImpl;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
@@ -35,11 +30,37 @@ public class LivePresenter implements LiveContract.Presenter {
     @Override
     public void start() {
     }
-
+    //这个是大Fragment的请求方法
     @Override
-    public void requestSmallLiveFragmentData() {
+    public void requestLiveFragmentData() {
+
+        liveMoudle.loadLiveData(new MyCallBack<AllLiveFragmentBean>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
+            public void onSusses(AllLiveFragmentBean allLiveFragmentBean) {
+                liveView.LiveFragmentDataResult(allLiveFragmentBean);
+            }
+
+            @Override
+            public void onsusses(String string) {
+
+            }
+
+            @Override
+            public void onError(String msg) {
+                liveView.showMessage(msg);
+            }
+        });
+    }
+    //这个是第一个小Fragment的请求方法
+    @Override
+    public void requestSmallLiveFragmentData(String url) {
         liveView.showProgress();
-        liveMoudle.loadLiveData(new MyCallBack<LiveFragmentBean>() {
+        liveMoudle.loadSmallLiveFragmentData(url,new MyCallBack<LiveFragmentBean>() {
             @Override
             public void onSuccess(Drawable drawable) {
 
@@ -47,7 +68,7 @@ public class LivePresenter implements LiveContract.Presenter {
 
             @Override
             public void onSusses(LiveFragmentBean liveFragmentBean) {
-                liveView.SmallLiveFragmentResult(liveFragmentBean.getLive().get(0));
+                liveView.SmallLiveFragmentResult(liveFragmentBean);
                 requestSmallLiveFragmentMoreEyeData(liveFragmentBean.getBookmark().getMultiple().get(0).getUrl());
                 requestSmallLiveFragmentWatchTalkData();
             }
@@ -64,6 +85,8 @@ public class LivePresenter implements LiveContract.Presenter {
         });
     }
 
+
+    //这个是第一个小Fragment中的多视角直播的请求方法
     @Override
     public void requestSmallLiveFragmentMoreEyeData(String moreeyeurl) {
         liveMoudle.loadLiveMoreEyeData(moreeyeurl, new MyCallBack<MoreEyeBean>() {
@@ -92,7 +115,7 @@ public class LivePresenter implements LiveContract.Presenter {
 
 
     }
-
+    //这个是第一个小Fragment中的边看边聊的请求方法
     @Override
     public void requestSmallLiveFragmentWatchTalkData() {
         String watchtalkurl = "http://newcomment.cntv.cn/comment/list?app=ipandaApp&itemid=zhiboye_chat&nature=1&page=2";
@@ -119,46 +142,19 @@ public class LivePresenter implements LiveContract.Presenter {
                 }
             });
     }
-
+    //这个是小Fragment中可以复用的Fragment的请求方法
     @Override
-    public void requestGoodTimeFragmentData() {
+    public void requestLiveCommonFragmentData(String vsid, int page) {
         liveView.showProgress();
-            liveMoudle.loadGoodTimeBeanData(new MyCallBack<GoodTimeBean>() {
-                @Override
-                public void onSuccess(Drawable drawable) {
-
-                }
-
-                @Override
-                public void onSusses(GoodTimeBean goodTimeBean) {
-                        liveView.GoodTimeBeanResult(goodTimeBean);
-                    liveView.dismissProgress();
-                }
-
-                @Override
-                public void onsusses(String string) {
-
-                }
-
-                @Override
-                public void onError(String msg) {
-
-                }
-            });
-    }
-
-    @Override
-    public void requestNobeerFragmentData() {
-        liveView.showProgress();
-        liveMoudle.loadNoBeerBeanData(new MyCallBack<NoBearBean>() {
+        liveMoudle.loadLiveCommonBeanData(vsid,page, new MyCallBack<LiveCommonBean>() {
             @Override
             public void onSuccess(Drawable drawable) {
 
             }
 
             @Override
-            public void onSusses(NoBearBean noBearBean) {
-                liveView.NoBeerBeanResult(noBearBean);
+            public void onSusses(LiveCommonBean liveCommonBean) {
+                liveView.LiveCommonDataResult(liveCommonBean);
                 liveView.dismissProgress();
             }
 
@@ -174,165 +170,4 @@ public class LivePresenter implements LiveContract.Presenter {
         });
     }
 
-    @Override
-    public void requestGGShowFragmentData() {
-        liveView.showProgress();
-        liveMoudle.loadGGShowBeanData(new MyCallBack<GGShowBean>() {
-            @Override
-            public void onSuccess(Drawable drawable) {
-
-            }
-
-            @Override
-            public void onSusses(GGShowBean ggShowBean) {
-                liveView.GGShowBeanResult(ggShowBean);
-                liveView.dismissProgress();
-            }
-
-            @Override
-            public void onsusses(String string) {
-
-            }
-
-            @Override
-            public void onError(String msg) {
-
-            }
-        });
-    }
-
-    @Override
-    public void requestPandaFileFragmentData() {
-        liveView.showProgress();
-        liveMoudle.loadPandaFileData(new MyCallBack<PandaFileBean>() {
-            @Override
-            public void onSuccess(Drawable drawable) {
-
-            }
-
-            @Override
-            public void onSusses(PandaFileBean pandaFileBean) {
-                liveView.PandaFileResult(pandaFileBean);
-                liveView.dismissProgress();
-            }
-
-            @Override
-            public void onsusses(String string) {
-
-            }
-
-            @Override
-            public void onError(String msg) {
-
-            }
-        });
-    }
-
-    @Override
-    public void requestPandaTopFragmentData() {
-        liveView.showProgress();
-        liveMoudle.loadPandaTopBeanData(new MyCallBack<PandaTopBean>() {
-            @Override
-            public void onSuccess(Drawable drawable) {
-
-            }
-
-            @Override
-            public void onSusses(PandaTopBean pandaTopBean) {
-                liveView.PandaTopBeanResult(pandaTopBean);
-                liveView.dismissProgress();
-            }
-
-            @Override
-            public void onsusses(String string) {
-
-            }
-
-            @Override
-            public void onError(String msg) {
-
-            }
-        });
-    }
-
-    @Override
-    public void requestPandaThingsFragmentData() {
-        liveView.showProgress();
-        liveMoudle.loadPandaThingsBeanData(new MyCallBack<NoBearBean>() {
-            @Override
-            public void onSuccess(Drawable drawable) {
-
-            }
-
-            @Override
-            public void onSusses(NoBearBean noBearBean) {
-                liveView.PandaThingsBeanResult(noBearBean);
-                liveView.dismissProgress();
-            }
-
-            @Override
-            public void onsusses(String string) {
-
-            }
-
-            @Override
-            public void onError(String msg) {
-
-            }
-        });
-    }
-
-    @Override
-    public void requestEspeciallyShowFragmentData() {
-        liveView.showProgress();
-        liveMoudle.loadEspeciallyShowBeanData(new MyCallBack<EspeciallyShowBean>() {
-            @Override
-            public void onSuccess(Drawable drawable) {
-
-            }
-
-            @Override
-            public void onSusses(EspeciallyShowBean especiallyShowBean) {
-                liveView.EspeciallyShowBeanResult(especiallyShowBean);
-                liveView.dismissProgress();
-            }
-
-            @Override
-            public void onsusses(String string) {
-
-            }
-
-            @Override
-            public void onError(String msg) {
-
-            }
-        });
-    }
-
-    @Override
-    public void requestOriginalNewsFragmentData() {
-        liveView.showProgress();
-        liveMoudle.loadOriginalNewsBeanData(new MyCallBack<OriginalNewsBean>() {
-            @Override
-            public void onSuccess(Drawable drawable) {
-
-            }
-
-            @Override
-            public void onSusses(OriginalNewsBean originalNewsBean) {
-                liveView.OriginalNewsBeanResult(originalNewsBean);
-                liveView.dismissProgress();
-            }
-
-            @Override
-            public void onsusses(String string) {
-
-            }
-
-            @Override
-            public void onError(String msg) {
-
-            }
-        });
-    }
 }

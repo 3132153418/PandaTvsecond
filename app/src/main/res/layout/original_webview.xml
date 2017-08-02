@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/original_web_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_chevron_left_white_36dp" />
+
+        <TextView
+           android:layout_centerInParent="true"
+            android:id="@+id/original_web_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="75dp"
+            android:text="原创互动"
+            android:textColor="#fff"
+            android:textSize="25sp" />
+        <ImageView
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/original_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="75dp"
+            android:src="@drawable/pe_share_img"/>
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/original_web"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"></WebView>
+
+</LinearLayout>

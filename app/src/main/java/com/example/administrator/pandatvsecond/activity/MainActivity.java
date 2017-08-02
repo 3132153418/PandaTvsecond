@@ -70,7 +70,6 @@ public class MainActivity extends BaseActivity{
     protected void initView() {
         HomeFragment homeFragment = (HomeFragment) changeFragment(HomeFragment.class,R.id.frameLayout,true,null,false);
         new HomePresenter(homeFragment);
-
     }
 
 
@@ -88,8 +87,7 @@ public class MainActivity extends BaseActivity{
 
         switch (view.getId()) {
             case R.id.personImg:
-          Intent intent = new Intent(MainActivity.this, PersonCenterActivity.class);
-          startActivity(intent);
+                startActivity(new Intent(MainActivity.this, PersonCenterActivity.class));
                 break;
             case R.id.hudongImg:
 
@@ -135,4 +133,6 @@ public class MainActivity extends BaseActivity{
         }
 
     }
+
+
 }

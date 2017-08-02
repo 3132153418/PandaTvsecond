@@ -24,6 +24,7 @@ import com.example.administrator.pandatvsecond.moudle.pandalivechina.adapter.Pan
 import com.example.administrator.pandatvsecond.moudle.pandalivechina.adapter.ZHPagerAdapter;
 import com.example.administrator.pandatvsecond.moudle.pandalivechina.fragment.LiveFragment;
 import com.example.administrator.pandatvsecond.util.MineLog;
+import com.example.administrator.pandatvsecond.widget.manager.LoadingDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -229,12 +230,12 @@ public class LiveChinaFragment extends BaseFragment implements LiveChinaContract
 
     @Override
     public void showProgress() {
-
+        LoadingDialog.show(getActivity());
     }
 
     @Override
     public void dismissProgress() {
-
+        LoadingDialog.dimiss();
     }
 
     @Override

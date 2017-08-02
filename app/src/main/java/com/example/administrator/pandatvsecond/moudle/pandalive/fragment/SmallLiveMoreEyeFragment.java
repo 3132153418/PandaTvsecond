@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
-import com.example.administrator.pandatvsecond.model.bean.MoreEyeBean;
+import com.example.administrator.pandatvsecond.model.bean.live.MoreEyeBean;
 import com.example.administrator.pandatvsecond.moudle.pandalive.adapter.SmallLiveMoreEyeAdapter;
 
 import java.util.List;
@@ -24,6 +24,8 @@ public class SmallLiveMoreEyeFragment extends BaseFragment {
         this.listBean = listBean;
     }
 
+    public SmallLiveMoreEyeFragment() {
+    }
 
     @Override
     protected int getLayoutId() {

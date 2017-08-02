@@ -1,7 +1,6 @@
 package com.example.administrator.pandatvsecond.moudle.pandagg;
 
 import android.graphics.drawable.Drawable;
-import android.util.Log;
 
 import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.model.bean.GGbean;
@@ -27,9 +26,9 @@ public class GGPresenter implements GGContract.ggPresenter {
     }
     @Override
     public void start() {
+        ggview.showProgress();
         GGbean ggbean = (GGbean) aCache.getAsObject("GGbean");
         if (ggbean == null) {
-
             gGmoudle.setGGmodel(new MyCallBack<GGbean>() {
                 @Override
                 public void onSuccess(Drawable drawable) {
@@ -37,7 +36,7 @@ public class GGPresenter implements GGContract.ggPresenter {
                 @Override
                 public void onSusses(GGbean gGbean) {
                     ggview.showGGdata(gGbean);
-                    Log.d("GGPresenter", "gGbean:" + gGbean);
+                    ggview.dismissProgress();
                     MineLog.d("滚滚视频网络请求成功", gGbean.getList().get(0).getBrief().toString());
                 }
                 @Override
@@ -48,7 +47,10 @@ public class GGPresenter implements GGContract.ggPresenter {
                     MineLog.d("滚滚视频网络请求失败", msg.toString());
                 }
             });
-        } else
+        } else{
             ggview.showGGdata(ggbean);
+            ggview.dismissProgress();
+        }
+
     }
 }

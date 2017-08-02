@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.R;
-import com.example.administrator.pandatvsecond.model.bean.MoreEyeBean;
+import com.example.administrator.pandatvsecond.model.bean.live.MoreEyeBean;
 import com.example.administrator.pandatvsecond.util.MineLog;
 
 import java.util.List;
