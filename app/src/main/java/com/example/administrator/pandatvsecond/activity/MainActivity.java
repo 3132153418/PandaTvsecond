@@ -90,7 +90,7 @@ public class MainActivity extends BaseActivity{
                 startActivity(new Intent(MainActivity.this, PersonCenterActivity.class));
                 break;
             case R.id.hudongImg:
-
+                startActivity(new Intent(MainActivity.this, OriginalActivity .class));
                 break;
             case R.id.shouye:
                 showTitle(null,HOMETYPE);
