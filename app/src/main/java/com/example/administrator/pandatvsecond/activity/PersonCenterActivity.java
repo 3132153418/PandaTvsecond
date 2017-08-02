@@ -21,7 +21,7 @@ public class PersonCenterActivity extends BaseActivity implements View.OnClickLi
     private LinearLayout click_Login_LinearLayout, gunakanLiShi, myShouCang, shezhi;
     private ImageView original_Back_Image;
     private TextView name_TextView;
-private ImageView touxiang;
+    private ImageView touxiang;
     @Override
     protected void initView() {
         click_Login_LinearLayout = (LinearLayout) findViewById(R.id.click_Login_LinearLayout);

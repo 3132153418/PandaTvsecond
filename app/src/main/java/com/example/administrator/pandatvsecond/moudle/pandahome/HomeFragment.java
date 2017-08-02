@@ -3,6 +3,7 @@ package com.example.administrator.pandatvsecond.moudle.pandahome;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.activity.video.VideoActivity;
@@ -11,6 +12,7 @@ import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.HomeBean;
 import com.example.administrator.pandatvsecond.moudle.pandahome.adapter.HomeRecycleviewAdapter;
 import com.example.administrator.pandatvsecond.util.MineLog;
+import com.example.administrator.pandatvsecond.util.VersionUpdateUtils;
 import com.example.administrator.pandatvsecond.widget.manager.LoadingDialog;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
@@ -58,6 +60,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
 
     @Override
     protected void loadData() {
+        presenter.requestVersionAndUpdate();
         presenter.start();
         homeRecycleviewAdapter.setOnClick(new HomeRecycleviewAdapter.OnClick() {
             @Override
@@ -150,6 +153,12 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
     }
 
     @Override
+    public void showUpdateDialog() {
+        //显示以及下载新版本
+        VersionUpdateUtils.showWarnUpdateDialog();
+    }
+
+    @Override
     public void showProgress() {
         LoadingDialog.show(App.context);
     }
@@ -167,7 +176,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
 
     @Override
     public void showMessage(String msg) {
-
+        Toast.makeText(getActivity(), msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

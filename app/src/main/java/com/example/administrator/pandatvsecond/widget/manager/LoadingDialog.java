@@ -22,7 +22,7 @@ public class LoadingDialog extends Dialog {
     public static LoadingDialog show(Context context){
         loadingDialog = new LoadingDialog(context, R.style.LoadingDialog);
         loadingDialog.setContentView(R.layout.dialog_loading);
-        loadingDialog.setCancelable(false);//设置不可取消
+        loadingDialog.setCancelable(true);//设置不可取消
         loadingDialog.setCanceledOnTouchOutside(false);//设置点击外部不可取消
         loadingDialog.getWindow().getAttributes().gravity = Gravity.CENTER;
         loadingDialog.show();

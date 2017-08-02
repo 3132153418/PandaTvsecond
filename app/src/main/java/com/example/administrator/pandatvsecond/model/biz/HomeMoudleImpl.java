@@ -2,6 +2,7 @@ package com.example.administrator.pandatvsecond.model.biz;
 
 import com.example.administrator.pandatvsecond.config.Urls;
 import com.example.administrator.pandatvsecond.model.bean.HomeBean;
+import com.example.administrator.pandatvsecond.model.bean.UpdateBean;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
 
 /**
@@ -12,5 +13,10 @@ public class HomeMoudleImpl implements HomeMoudle{
     @Override
     public void loadHomeData(MyCallBack<HomeBean> callBack) {
         ihttp.get(Urls.PANDAHOME,null,callBack);
+    }
+
+    @Override
+    public void requestVersion(MyCallBack<UpdateBean> callBack) {
+        ihttp.get(Urls.UPDATE_URL,null,callBack);
     }
 }

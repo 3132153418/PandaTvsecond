@@ -4,11 +4,13 @@ import android.graphics.drawable.Drawable;
 
 import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.model.bean.HomeBean;
+import com.example.administrator.pandatvsecond.model.bean.UpdateBean;
 import com.example.administrator.pandatvsecond.model.biz.HomeMoudle;
 import com.example.administrator.pandatvsecond.model.biz.HomeMoudleImpl;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
 import com.example.administrator.pandatvsecond.util.ACache;
 import com.example.administrator.pandatvsecond.util.MineLog;
+import com.example.administrator.pandatvsecond.util.VersionUpdateUtils;
 
 /**
  * Created by Administrator on 2017/7/28.
@@ -55,6 +57,38 @@ public class HomePresenter implements HomeContract.Presenter {
             homeView.setResult(homeBean);
             homeView.dismissProgress();
         }
+
+    }
+    //这是版本更新的方法
+    @Override
+    public void requestVersionAndUpdate() {
+
+        homeMoudle.requestVersion(new MyCallBack<UpdateBean>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
+            public void onSusses(UpdateBean updateBean) {
+                if (VersionUpdateUtils.isNeedVersionUpdata(updateBean)) {//代表需要版本更新
+                    homeView.showUpdateDialog();
+                }else{//代表已经是最新版本
+                    homeView.showMessage("已经是最新版本");
+                }
+            }
+
+            @Override
+            public void onsusses(String string) {
+
+            }
+
+            @Override
+            public void onError(String msg) {
+                homeView.showMessage(msg);
+            }
+
+        });
 
     }
 }

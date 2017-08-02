@@ -1,11 +1,9 @@
 package com.example.administrator.pandatvsecond.activity;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -14,13 +12,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.pandatvsecond.R;
+import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.model.bean.HomeBean;
 import com.example.administrator.pandatvsecond.moudle.pandahome.HomeContract;
+import com.example.administrator.pandatvsecond.moudle.pandahome.HomePresenter;
 import com.example.administrator.pandatvsecond.util.DataCleanManager;
+import com.example.administrator.pandatvsecond.util.VersionUpdateUtils;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -53,23 +53,23 @@ public class SettingActivity extends BaseActivity implements HomeContract.View {
     ImageView isAbout;
     @BindView(R.id.panda_setting_about)
     RelativeLayout pandaSettingAbout;
-    @BindView(R.id.settingBack)
+    @BindView(R.id.settingback)
     ImageView settingBack;
-    //版本更新
-    private static int versionCode;
-    private String versionsUrl;
-    private AlertDialog alertDialog;
-    int total = 0;
-    private int versionsInt;
+
+
     //持有P层对象
     private HomeContract.Presenter presenter;
-    private Context context;
+
 
 
     @Override
     protected void initView() {
-        context = SettingActivity.this;
-
+        new HomePresenter(this);
+        try {
+            number.setText(DataCleanManager.getTotalCacheSize(SettingActivity.this));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -77,28 +77,30 @@ public class SettingActivity extends BaseActivity implements HomeContract.View {
     }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        ButterKnife.bind(this);
+//    }
 
     @Override
     protected int getLauoutId() {
         return R.layout.person_setting;
-
     }
 
 
-    @OnClick({R.id.panda_setting_help, R.id.panda_setting_shengji, R.id.panda_setting_haoping, R.id.panda_setting_about, R.id.clean})
+    @OnClick({R.id.settingback,R.id.panda_setting_help, R.id.panda_setting_shengji,R.id.panda_setting_haoping, R.id.panda_setting_about, R.id.clean})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+            case R.id.settingback:
+                this.finish();
+                break;
             case R.id.panda_setting_help:
-                Intent intent = new Intent(context, PersonhelpActivity.class);
+                Intent intent = new Intent(App.context, PersonhelpActivity.class);
                 startActivity(intent);
                 break;
             case R.id.panda_setting_shengji:
+                presenter.requestVersionAndUpdate();
                 break;
             case R.id.panda_setting_haoping:
                 Uri uri = Uri.parse("market://details?id=cn.cntv.app.ipanda");
@@ -134,10 +136,8 @@ public class SettingActivity extends BaseActivity implements HomeContract.View {
                             e.printStackTrace();
                         }
                     }
-
-//                    AlertDialog dialog = builder.create();
-
                 });
+               builder.create().show();
                 break;
         }
     }
@@ -174,11 +174,10 @@ public class SettingActivity extends BaseActivity implements HomeContract.View {
 
     }
 
-
-    @OnClick(R.id.settingBack)
-    public void onViewClicked() {
-        finish();
+    @Override
+    public void showUpdateDialog() {
+        //显示以及下载新版本
+        VersionUpdateUtils.showWarnUpdateDialog();
     }
-
 
 }
