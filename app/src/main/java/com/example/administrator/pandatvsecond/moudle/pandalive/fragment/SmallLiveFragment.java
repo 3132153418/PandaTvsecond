@@ -97,6 +97,7 @@ public class SmallLiveFragment extends Fragment implements LiveContract.View{
     @Override
     public void SmallLiveFragmentResult(LiveFragmentBean liveBean) {
         if (isCreatView) {
+
             LiveFragmentBean.LiveBean liveBean1 = liveBean.getLive().get(0);
             Glide.with(getActivity()).load(liveBean1.getImage()).into(iv_smalllivefragment);
             tv_smalllivefragment_title.setText(liveBean1.getTitle());

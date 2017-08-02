@@ -16,5 +16,8 @@ public interface OriginalContract {
     }
     interface Presenter extends BasePresenter {
 
+
+
+
     }
 }

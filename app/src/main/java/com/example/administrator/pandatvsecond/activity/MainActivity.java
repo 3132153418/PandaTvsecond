@@ -64,7 +64,6 @@ public class MainActivity extends BaseActivity{
     protected void initView() {
         HomeFragment homeFragment = (HomeFragment) changeFragment(HomeFragment.class,R.id.frameLayout,true,null,false);
         new HomePresenter(homeFragment);
-
     }
 
 
