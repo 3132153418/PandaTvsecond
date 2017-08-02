@@ -1,5 +1,6 @@
 package com.example.administrator.pandatvsecond.activity.video;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.example.administrator.pandatvsecond.R;
@@ -17,7 +18,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 public class VideoActivity extends BaseActivity implements VideoContract.View {
     private VideoContract.Presenter presenter;
-    private String pid = "d2a828ca5cd0400f82c2adee5581fc17";
+    private String pid ,title;
     private String url;
     private JCVideoPlayerStandard jcVideoPlayerStandard;
 
@@ -36,6 +37,9 @@ public class VideoActivity extends BaseActivity implements VideoContract.View {
     protected void initView() {
         new VideoPresenter(this);
         jcVideoPlayerStandard = (JCVideoPlayerStandard) findViewById(R.id.jcVideoPlayerStandard);
+        Intent intent = getIntent();
+        pid= intent.getStringExtra("pid");
+       title = intent.getStringExtra("title");
     }
 
     @Override
@@ -44,19 +48,13 @@ public class VideoActivity extends BaseActivity implements VideoContract.View {
         JCVideoPlayer.releaseAllVideos();
     }
 
-    //    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        JCVideoPlayer.releaseAllVideos();
-//    }
-
     @Override
     public void setResult(final VideoJingCaiBean videoJingCaiBean) {
 
         final List<VideoJingCaiBean.VideoBean.ChaptersBean> chapters = videoJingCaiBean.getVideo().getChapters();
 
         url = chapters.get(0).getUrl();
-        jcVideoPlayerStandard.setUp(url,JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,"你看看着行么");
+        jcVideoPlayerStandard.setUp(url,JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,title);
         jcVideoPlayerStandard.startVideo();
         jcVideoPlayerStandard.setMonitor(new JCVideoPlayerStandard.imgClickon() {
             @Override
@@ -80,7 +78,7 @@ public class VideoActivity extends BaseActivity implements VideoContract.View {
 
                 List<VideoJingCaiBean.VideoBean.Chapters2Bean> chapters2 = videoJingCaiBean.getVideo().getChapters2();
                 url = chapters2.get(0).getUrl();
-                jcVideoPlayerStandard.setUp(url,JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,"你看看行么");
+                jcVideoPlayerStandard.setUp(url,JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,title);
                 jcVideoPlayerStandard.startVideo();
 
             }
@@ -91,7 +89,7 @@ public class VideoActivity extends BaseActivity implements VideoContract.View {
 
                 List<VideoJingCaiBean.VideoBean.Chapters4Bean> chapters4 = videoJingCaiBean.getVideo().getChapters4();
                 url = chapters4.get(0).getUrl();
-                jcVideoPlayerStandard.setUp(url,JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,"你看看行么");
+                jcVideoPlayerStandard.setUp(url,JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,title);
                 jcVideoPlayerStandard.startVideo();
             }
         });

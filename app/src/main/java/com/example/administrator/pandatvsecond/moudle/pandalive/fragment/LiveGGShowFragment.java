@@ -40,7 +40,7 @@ public class LiveGGShowFragment extends LiveBaseFragment  implements LiveContrac
     protected void initView(View view) {
         new LivePresenter(this);//关联Presenter层对象
         ggshow_recyclerview = (XRecyclerView) view.findViewById(R.id.ggshow_recyclerview);
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         ggshow_recyclerview.setLayoutManager(manager);
         ggshow_recyclerview.setPullRefreshEnabled(true);
@@ -121,7 +121,7 @@ public class LiveGGShowFragment extends LiveBaseFragment  implements LiveContrac
 
     @Override
     public void showProgress() {
-        LoadingDialog.show(getContext());
+        LoadingDialog.show(getActivity());
     }
 
     @Override

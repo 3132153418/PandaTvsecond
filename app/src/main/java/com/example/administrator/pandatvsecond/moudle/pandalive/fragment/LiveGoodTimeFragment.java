@@ -42,7 +42,7 @@ public class LiveGoodTimeFragment extends LiveBaseFragment implements LiveContra
     protected void initView(View view) {
         new LivePresenter(this);//关联Presenter层对象
         goodtime_recyclerview = (XRecyclerView) view.findViewById(R.id.goodtime_recyclerview);
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         goodtime_recyclerview.setLayoutManager(manager);
         goodtime_recyclerview.setPullRefreshEnabled(true);
@@ -123,7 +123,7 @@ public class LiveGoodTimeFragment extends LiveBaseFragment implements LiveContra
 
     @Override
     public void showProgress() {
-        LoadingDialog.show(getContext());
+        LoadingDialog.show(getActivity());
     }
 
     @Override

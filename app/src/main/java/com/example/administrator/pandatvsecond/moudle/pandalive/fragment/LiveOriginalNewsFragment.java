@@ -40,7 +40,7 @@ public class LiveOriginalNewsFragment extends LiveBaseFragment implements LiveCo
     protected void initView(View view) {
         new LivePresenter(this);//关联Presenter层对象
         originalnews_recyclerview = (XRecyclerView) view.findViewById(R.id.originalnews_recyclerview);
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         originalnews_recyclerview.setLayoutManager(manager);
         originalnews_recyclerview.setPullRefreshEnabled(true);
@@ -121,7 +121,7 @@ public class LiveOriginalNewsFragment extends LiveBaseFragment implements LiveCo
 
     @Override
     public void showProgress() {
-        LoadingDialog.show(getContext());
+        LoadingDialog.show(getActivity());
     }
 
     @Override

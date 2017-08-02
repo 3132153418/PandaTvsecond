@@ -9,6 +9,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.administrator.pandatvsecond.R;
+import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.moudle.pandabroadcast.BroadcastFragment;
 import com.example.administrator.pandatvsecond.moudle.pandagg.GGFragment;
@@ -57,6 +58,12 @@ public class MainActivity extends BaseActivity{
     @Override
     protected void loadData() {
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        App.context = this;
     }
 
     @Override
