@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -35,7 +36,7 @@ public class PandaWonderfulTimeAdapter extends RecyclerView.Adapter<PandaWonderf
     }
 
     @Override
-    public void onBindViewHolder(ViewHoler holder, int position) {
+    public void onBindViewHolder(ViewHoler holder, final int position) {
         String image = listscroll.get(position).getImage();
         String title = listscroll.get(position).getTitle();
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
@@ -44,6 +45,13 @@ public class PandaWonderfulTimeAdapter extends RecyclerView.Adapter<PandaWonderf
         Glide.with(context).load(image).into(holder.iv_pandaliveshow_recycler);
         holder.tv_pandawonderfultime_recycler_title.setText(title);
         holder.tv_pandawonderfultime_recycler_time.setText(date);
+        LinearLayout linearLayout = (LinearLayout) holder.itemView.findViewById(R.id.pandaWonderfulTime);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setOnItemListener.setOnItemListener(position);
+            }
+        });
     }
 
     @Override
@@ -66,4 +74,11 @@ public class PandaWonderfulTimeAdapter extends RecyclerView.Adapter<PandaWonderf
 
         }
     }
-}
+
+    public SetOnItemListener setOnItemListener;
+    public void setonClickListener(SetOnItemListener setOnItemListener){
+        this.setOnItemListener= (setOnItemListener);
+    }
+    public interface SetOnItemListener{
+        void setOnItemListener(int postion);
+    }}

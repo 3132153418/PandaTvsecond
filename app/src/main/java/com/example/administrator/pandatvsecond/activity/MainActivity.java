@@ -61,6 +61,12 @@ public class MainActivity extends BaseActivity{
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        App.context = this;
+    }
+
+    @Override
     protected void initView() {
         HomeFragment homeFragment = (HomeFragment) changeFragment(HomeFragment.class,R.id.frameLayout,true,null,false);
         new HomePresenter(homeFragment);
@@ -84,8 +90,6 @@ public class MainActivity extends BaseActivity{
                 startActivity(new Intent(MainActivity.this, PersonCenterActivity.class));
                 break;
             case R.id.hudongImg:
-//                首套房水调歌头如附件一天
-                startActivity(new Intent(App.context, OriginalActivity.class));
                 break;
             case R.id.shouye:
                 showTitle(null,HOMETYPE);

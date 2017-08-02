@@ -23,7 +23,7 @@ import java.util.List;
  * Created by Administrator on 2017/7/28.
  */
 
-public class BroadcastFragment extends BaseFragment implements BroadcastContract.View,PullToRefreshListener{
+public class BroadcastFragment extends BaseFragment implements BroadcastContract.View{
 
     private List<BroadcastBean.ListBean> list = new ArrayList<>();
     private ImageView imageView;
@@ -51,6 +51,34 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContract
         pullToRefreshRecyclerView.setLayoutManager(managers);
         pullToRefreshRecyclerView.addHeaderView(inflat);
         pullToRefreshRecyclerView.setPullRefreshEnabled(true);
+        pullToRefreshRecyclerView.setPullToRefreshListener(new PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                pullToRefreshRecyclerView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        list.clear();
+                        presenter.start();
+                        pullToRefreshRecyclerView.setRefreshComplete();
+                    }
+                },1000);
+
+            }
+
+            @Override
+            public void onLoadMore() {
+
+                pullToRefreshRecyclerView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        pullToRefreshRecyclerView.setLoadMoreComplete();
+                    }
+                },2000);
+
+            }
+        });
 
 
     }
@@ -58,6 +86,7 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContract
     @Override
     protected void loadData() {
         presenter.start();
+
 
     }
 
@@ -85,24 +114,7 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContract
     @Override
     public void onRefresh() {
 
-        pullToRefreshRecyclerView.setPullToRefreshListener(new PullToRefreshListener() {
-            @Override
-            public void onRefresh() {
-                list.clear();
-                presenter.start();
-                pullToRefreshRecyclerView.setRefreshComplete();
-            }
 
-            @Override
-            public void onLoadMore() {
-
-            }
-        });
-
-    }
-
-    @Override
-    public void onLoadMore() {
 
     }
 

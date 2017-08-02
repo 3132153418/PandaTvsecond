@@ -24,6 +24,9 @@
         </activity>
         <activity android:name=".activity.SplashActivity"/>
         <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".moudle.pandagg.ggwebactivity.GGWebViewActivity">
+
+        </activity>
         <activity android:name=".activity.PersonCenterActivity"/>
         <activity android:name=".moudle.mine.login.LoginActivity"/>
         <activity android:name=".activity.RegisterActivity"/>

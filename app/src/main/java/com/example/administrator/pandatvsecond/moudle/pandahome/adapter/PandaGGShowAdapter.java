@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -35,7 +36,7 @@ public class PandaGGShowAdapter extends RecyclerView.Adapter<PandaGGShowAdapter.
     }
 
     @Override
-    public void onBindViewHolder(ViewHoler holder, int position) {
+    public void onBindViewHolder(ViewHoler holder, final int position) {
         String image = list1.get(position).getImage();
         String title = list1.get(position).getTitle();
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
@@ -44,6 +45,13 @@ public class PandaGGShowAdapter extends RecyclerView.Adapter<PandaGGShowAdapter.
         Glide.with(context).load(image).into(holder.iv_pandaggshow_recycler);
         holder.tv_pandaggshow_recycler_title.setText(title);
         holder.tv_pandaggshow_recycler_time.setText(date);
+        LinearLayout linearLayout = (LinearLayout) holder.itemView.findViewById(R.id.pandaGGShow);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setOnItemListener.setOnItemListener(position);
+            }
+        });
     }
 
     @Override
@@ -65,5 +73,12 @@ public class PandaGGShowAdapter extends RecyclerView.Adapter<PandaGGShowAdapter.
 
 
         }
+    }
+    public PandaLiveShowAdapter.SetOnItemListener setOnItemListener;
+    public void setonClickListener(PandaLiveShowAdapter.SetOnItemListener setOnItemListener){
+        this.setOnItemListener=setOnItemListener;
+    }
+    public interface SetOnItemListener{
+        void setOnItemListener(int postion);
     }
 }

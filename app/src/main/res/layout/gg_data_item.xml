@@ -4,7 +4,7 @@
               android:layout_height="115dp"
               android:background="#fbf9f9"
               android:orientation="vertical"
-    >
+    android:id="@+id/gg_Linear">
 
     <LinearLayout
         android:layout_marginTop="10dp"

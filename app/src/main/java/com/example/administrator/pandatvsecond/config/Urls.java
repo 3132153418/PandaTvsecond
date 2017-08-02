@@ -62,6 +62,9 @@ public class Urls {
     //    原创新闻
     public static final String YCXW = "http://api.cntv.cn/video/videolistById?vsid=VSET100219009515&n=7&serviceId=panda&o=desc&of=time&p=1";
 
+
+    //滚滚webview
+    public static final String VEDIOCULTURE = "http://api.cntv.cn/video/videolistById?p=1&serviceId=panda&n=150&vsid=VSET100311356635 ";
     public static final String PANDAORIGINAL = BASEURL+"PAGE14501767715521482/index.json";
     //精彩一刻
 //

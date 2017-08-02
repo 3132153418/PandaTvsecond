@@ -57,7 +57,7 @@ public class SmallLiveWatchTalkFragment extends BaseFragment implements View.OnC
 
             }
         });
-        watchTalkRecyclerviewAdapter = new WatchTalkRecyclerviewAdapter(content,getContext());
+        watchTalkRecyclerviewAdapter = new WatchTalkRecyclerviewAdapter(content,getActivity());
         recyclerview.setAdapter(watchTalkRecyclerviewAdapter);
     }
 

@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -35,13 +36,20 @@ public class PandaLiveShowAdapter extends RecyclerView.Adapter<PandaLiveShowAdap
     }
 
     @Override
-    public void onBindViewHolder(ViewHoler holder, int position) {
+    public void onBindViewHolder(ViewHoler holder, final int position) {
         String title = list.get(position).getTitle();
         String image = list.get(position).getImage();
         MineLog.d("PandaLiveShowAdapter","每个Item的数据为"+title+"--"+image);
         Glide.with(context).load(image).into(holder.iv_pandaliveshow_recycler);
         holder.tv_pandaliveshow_recycler.setText(title);
+        LinearLayout linearLayout= (LinearLayout) holder.itemView.findViewById(R.id.one);
 
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setOnItemListener.setOnItemListener(position);
+            }
+        });
     }
 
     @Override
@@ -54,11 +62,20 @@ public class PandaLiveShowAdapter extends RecyclerView.Adapter<PandaLiveShowAdap
         private final ImageView iv_pandaliveshow_recycler;
         private final TextView tv_pandaliveshow_recycler;
 
+
         public ViewHoler(View itemView) {
             super(itemView);
             iv_pandaliveshow_recycler = (ImageView) itemView.findViewById(R.id.iv_pandaliveshow_recycler);
             tv_pandaliveshow_recycler = (TextView) itemView.findViewById(R.id.tv_pandaliveshow_recycler);
 
+
         }
+    }
+    public SetOnItemListener setOnItemListener;
+    public void setonClickListener(SetOnItemListener setOnItemListener){
+        this.setOnItemListener=setOnItemListener;
+    }
+    public interface SetOnItemListener{
+        void setOnItemListener(int postion);
     }
 }
