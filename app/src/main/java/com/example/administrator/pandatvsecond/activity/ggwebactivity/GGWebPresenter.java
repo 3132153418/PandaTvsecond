@@ -1,4 +1,4 @@
-package com.example.administrator.pandatvsecond.moudle.pandagg.ggwebactivity;
+package com.example.administrator.pandatvsecond.activity.ggwebactivity;
 
 import android.graphics.drawable.Drawable;
 

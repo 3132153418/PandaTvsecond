@@ -14,7 +14,7 @@ import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.GGbean;
 import com.example.administrator.pandatvsecond.moudle.pandagg.adapter.GGAdapter;
 import com.example.administrator.pandatvsecond.moudle.pandagg.adapter.GlideImageLoader;
-import com.example.administrator.pandatvsecond.moudle.pandagg.ggwebactivity.GGWebViewActivity;
+import com.example.administrator.pandatvsecond.activity.ggwebactivity.GGWebViewActivity;
 import com.example.administrator.pandatvsecond.util.MineLog;
 import com.example.administrator.pandatvsecond.widget.manager.LoadingDialog;
 import com.youth.banner.Banner;
@@ -27,7 +27,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 滚滚视频但是规范化规范结核杆菌个 */
+ * 滚滚视频 */
 
 public class GGFragment extends BaseFragment implements GGContract.View{
 
@@ -127,13 +127,12 @@ public class GGFragment extends BaseFragment implements GGContract.View{
                 String url = listBean.getUrl();
                 String title = listBean.getTitle();
                 String brief = listBean.getBrief();
-                String pid = listBean.getId();
                 String image = listBean.getImage();
                 Intent in = new Intent(getActivity(),GGWebViewActivity.class);
                 in.putExtra("url",url);
                 in.putExtra("title",title);
                 in.putExtra("brief",brief);
-                in.putExtra("pid",pid);
+                in.putExtra("pid","84f27011346547c595d78b47a48eb6de");
                 in.putExtra("image",image);
                 startActivity(in);
 

@@ -1,6 +1,5 @@
-package com.example.administrator.pandatvsecond.moudle.pandagg.ggwebactivity;
+package com.example.administrator.pandatvsecond.activity.ggwebactivity;
 
-import com.example.administrator.pandatvsecond.activity.video.VideoContract;
 import com.example.administrator.pandatvsecond.base.BasePresenter;
 import com.example.administrator.pandatvsecond.base.BaseView;
 import com.example.administrator.pandatvsecond.model.bean.PandaTebieBean;
