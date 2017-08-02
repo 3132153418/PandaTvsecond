@@ -47,7 +47,7 @@ public class OriginalWebViewAcTivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.original_webview);
-//        fdgyfdyhgfh
+
         ButterKnife.bind(this);
         url = getIntent().getStringExtra("url");
         title = getIntent().getStringExtra("title");

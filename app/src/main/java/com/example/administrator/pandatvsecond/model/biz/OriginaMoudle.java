@@ -10,5 +10,6 @@ import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
  */
 
 public interface OriginaMoudle extends BaseModel{
+
     void getOriginaCallBack(MyCallBack<OriginalBean> callBack);
 }

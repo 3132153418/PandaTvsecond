@@ -21,7 +21,7 @@ import com.example.administrator.pandatvsecond.widget.manager.ToastManager;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-//主界面        修改
+
 public class MainActivity extends BaseActivity{
     @BindView(R.id.iconImg)
     ImageView iconImg;
