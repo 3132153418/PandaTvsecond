@@ -127,5 +127,6 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContract
         list.addAll(listBean);
         BroadcastAdapter adapter = new BroadcastAdapter(list, getActivity());
         pullToRefreshRecyclerView.setAdapter(adapter);
+
     }
 }

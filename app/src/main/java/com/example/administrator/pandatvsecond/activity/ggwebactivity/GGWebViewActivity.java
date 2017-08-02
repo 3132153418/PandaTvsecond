@@ -1,7 +1,10 @@
-package com.example.administrator.pandatvsecond.moudle.pandagg.ggwebactivity;
+package com.example.administrator.pandatvsecond.activity.ggwebactivity;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.TextView;
 
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
@@ -9,6 +12,7 @@ import com.example.administrator.pandatvsecond.model.bean.PandaTebieBean;
 import com.example.administrator.pandatvsecond.model.bean.VideoJingCaiBean;
 import com.example.administrator.pandatvsecond.moudle.pandagg.adapter.GGWebAdapter;
 import com.example.administrator.pandatvsecond.util.MineLog;
+import com.example.administrator.pandatvsecond.widget.manager.LoadingDialog;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
@@ -22,13 +26,16 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
  * 测试一下
  */
 
-public class GGWebViewActivity extends BaseActivity implements GGWebContract.View {
+public class GGWebViewActivity extends BaseActivity implements GGWebContract.View,View.OnClickListener{
     private GGWebContract.Presenter presenter;
     private XRecyclerView xRecyclerView;
     private GGWebAdapter ggWebAdapter;
     private List<PandaTebieBean.VideoBean> list = new ArrayList<>();
-    private String pid = "d2a828ca5cd0400f82c2adee5581fc17",title,url;
+    private String pid ,title,url;
     private JCVideoPlayerStandard jcVideoPlayerStandard;
+    private CheckBox checkbox_Image_Btn;
+    private TextView ggWeb_TextView;
+    private Boolean isCheck = false;
 
     @Override
     protected int getLauoutId() {
@@ -50,17 +57,19 @@ public class GGWebViewActivity extends BaseActivity implements GGWebContract.Vie
 
         jcVideoPlayerStandard = (JCVideoPlayerStandard) findViewById(R.id.jcVideoPlayerStandard);
 
+        checkbox_Image_Btn = (CheckBox) findViewById(R.id.checkbox_Image_Btn);
+        checkbox_Image_Btn.setOnClickListener(this);
+        ggWeb_TextView = (TextView) findViewById(R.id.ggWeb_TextView);
         xRecyclerView = (XRecyclerView) findViewById(R.id.ggWeb_Xrecycler);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.VERTICAL);
         xRecyclerView.setLayoutManager(manager);
         ggWebAdapter = new GGWebAdapter(list, GGWebViewActivity.this);
         xRecyclerView.setAdapter(ggWebAdapter);
-        ggWebAdapter.notifyDataSetChanged();
 
-        /*Intent intent = getIntent();
+        Intent intent = getIntent();
         pid = intent.getStringExtra("pid");
-        title = intent.getStringExtra("title");*/
+        title = intent.getStringExtra("title");
 
     }
 
@@ -72,12 +81,12 @@ public class GGWebViewActivity extends BaseActivity implements GGWebContract.Vie
 
     @Override
     public void showProgress() {
-
+        LoadingDialog.show(this);
     }
 
     @Override
     public void dismissProgress() {
-
+        LoadingDialog.dimiss();
     }
 
     @Override
@@ -101,7 +110,7 @@ public class GGWebViewActivity extends BaseActivity implements GGWebContract.Vie
         final List<VideoJingCaiBean.VideoBean.ChaptersBean> chapters = videoJingCaiBean.getVideo().getChapters();
 
         url = chapters.get(0).getUrl();
-        jcVideoPlayerStandard.setUp(url,JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,"asdas");
+        jcVideoPlayerStandard.setUp(url,JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL,title);
         jcVideoPlayerStandard.startVideo();
 
     }
@@ -120,5 +129,22 @@ public class GGWebViewActivity extends BaseActivity implements GGWebContract.Vie
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.checkbox_Image_Btn:
+                if (isCheck == false) {
+                    ggWeb_TextView.setVisibility(View.VISIBLE);
+                    isCheck = true;
+                    return;
+                } else {
+                    ggWeb_TextView.setVisibility(View.GONE);
+                    isCheck = false;
+                    return;
+
+                }
+        }
     }
 }

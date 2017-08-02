@@ -1,10 +1,12 @@
 package com.example.administrator.pandatvsecond.moudle.pandalive.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.administrator.pandatvsecond.R;
+import com.example.administrator.pandatvsecond.activity.video.VideoActivity;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.live.AllLiveFragmentBean;
 import com.example.administrator.pandatvsecond.model.bean.live.LiveCommonBean;
@@ -72,10 +74,9 @@ public class LiveCommonFragment extends BaseFragment implements LiveContract.Vie
         }
     }
 
-
     @Override
     protected void loadData() {
-
+        
     }
 
     @Override
@@ -92,6 +93,17 @@ public class LiveCommonFragment extends BaseFragment implements LiveContract.Vie
                 common_recyclerview.setAdapter(liveCommonAdapter);
                 common_recyclerview.refreshComplete();
             }
+            liveCommonAdapter.setonClickListener(new LiveCommonAdapter.SetOnItemListener() {
+                @Override
+                public void setOnItemListener(int postion) {
+                    String pid = video.get(postion).getVid();
+                    String title = video.get(postion).getT();
+                    Intent intent = new Intent(getActivity(), VideoActivity.class);
+                    intent.putExtra("pid",pid);
+                    intent.putExtra("title",title);
+                    startActivity(intent);
+                }
+            });
 
 
 //            isCreatView = false;

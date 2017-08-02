@@ -4,12 +4,14 @@ import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.model.bean.live.LiveCommonBean;
+import com.example.administrator.pandatvsecond.moudle.pandahome.adapter.PandaLiveShowAdapter;
 
 import java.util.List;
 
@@ -34,11 +36,18 @@ public class LiveCommonAdapter extends RecyclerView.Adapter<LiveCommonAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(ViewHoder holder, int position) {
+    public void onBindViewHolder(ViewHoder holder, final int position) {
         Glide.with(context).load(video.get(position).getImg()).into(holder.iv_livecommon);
         holder.tv_livecommon_title.setText(video.get(position).getT());
         holder.tv_livecommon_data.setText(video.get(position).getPtime());
         holder.tv_livecommon_time.setText(video.get(position).getLen());
+        FrameLayout frameLayout = (FrameLayout) holder.itemView.findViewById(R.id.live_Common);
+        frameLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setOnItemListener.setOnItemListener(position);
+            }
+        });
     }
 
     @Override
@@ -61,5 +70,12 @@ public class LiveCommonAdapter extends RecyclerView.Adapter<LiveCommonAdapter.Vi
             tv_livecommon_title = (TextView) itemView.findViewById(R.id.tv_livecommon_title);
             tv_livecommon_data = (TextView) itemView.findViewById(R.id.tv_livecommon_data);
         }
+    }
+    public SetOnItemListener setOnItemListener;
+    public void setonClickListener(SetOnItemListener setOnItemListener){
+        this.setOnItemListener=setOnItemListener;
+    }
+    public interface SetOnItemListener{
+        void setOnItemListener(int postion);
     }
 }

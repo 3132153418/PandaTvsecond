@@ -6,7 +6,7 @@
 
     <fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="200dp"
         android:id="@+id/jcVideoPlayerStandard">
 
     </fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard>
@@ -27,14 +27,16 @@
             android:text="栏目介绍："
             android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"/>
-        <ImageView
+        <CheckBox
             android:id="@+id/checkbox_Image_Btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/lives"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/lives"
+            android:button="@null"
            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"/>
+            />
         <TextView
+            android:id="@+id/ggWeb_TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="这是一档每周五更新的盘点类节目，每周盘点近期最萌、最酷、最搞笑的直播精彩画面"

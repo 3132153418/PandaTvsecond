@@ -47,7 +47,7 @@ public class LiveFragment extends BaseFragment implements LiveContract.View {
     @Override
     protected void initView(View view) {
         mListView = (ListView) view.findViewById(R.id.ZhiboChena_ListView);
-        mAdapter = new ZhiBochenaAdapter(getContext(), mList);
+        mAdapter = new ZhiBochenaAdapter(getActivity(), mList);
         mListView.setAdapter(mAdapter);
     }
 
