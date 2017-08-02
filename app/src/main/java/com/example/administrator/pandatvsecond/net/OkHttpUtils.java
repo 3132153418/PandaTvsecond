@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
-import com.example.administrator.pandatvsecond.widget.manager.Keys;
+
 import com.google.gson.Gson;
 
 import java.io.ByteArrayInputStream;
@@ -80,7 +80,7 @@ public class OkHttpUtils implements Ihttp {
                     @Override
                     public void run() {
                         //执行在主线程
-                        callBack.onError(e.getMessage().toString());
+                        callBack.onError(e.getMessage());
                     }
                 });
 
@@ -347,8 +347,8 @@ public class OkHttpUtils implements Ihttp {
                 Headers headers = response.headers();
                 String jsessionId =  headers.get("Set-Cookie");
                 final Bundle bundle = new Bundle();
-                bundle.putString(Keys.JSESSIONID,jsessionId);
-                bundle.putByteArray(Keys.IMGCODE,bytes);
+//                bundle.putString(Keys.JSESSIONID,jsessionId);
+//                bundle.putByteArray(Keys.IMGCODE,bytes);
 
                 //执行在子线程中
                 App.context.runOnUiThread(new Runnable() {

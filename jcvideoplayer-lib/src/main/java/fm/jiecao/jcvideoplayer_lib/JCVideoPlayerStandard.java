@@ -65,10 +65,8 @@ private Context mContext;
 
     private Button GaoBtn,BaiBtn;
 
-
     public JCVideoPlayerStandard(Context context) {
         super(context);
-
 
     }
 
@@ -95,7 +93,6 @@ private Context mContext;
         mfenxaing = (ImageView) findViewById(R.id.fenxaing);
         mYingliang = (SeekBar) findViewById(R.id.YingliangTiao);
 
-
         am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         //获取系统最大音量
         int maxVolume = am.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
@@ -117,7 +114,6 @@ private Context mContext;
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
 
-
             }
 
             @Override
@@ -126,15 +122,10 @@ private Context mContext;
             }
         });
 
-
-
-
-
         receiver = new VolumeReceiver();
         IntentFilter filter = new IntentFilter() ;
         filter.addAction("android.media.VOLUME_CHANGED_ACTION") ;
         context.registerReceiver(receiver, filter) ;
-
 
         final Button btn = (Button) findViewById(R.id.lx);
         btn.setOnClickListener(new OnClickListener() {
@@ -162,7 +153,6 @@ private Context mContext;
             }
         });
 
-
         backButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -183,9 +173,6 @@ private Context mContext;
             }
         });
     }
-
-
-
 
     class VolumeReceiver extends BroadcastReceiver {
 
@@ -214,7 +201,6 @@ private Context mContext;
         this.imgClickon = imgClickon;
     }
 
-
     @Override
     public void setUp(String url, int screen, Object... objects) {
         super.setUp(url, screen, objects);
@@ -237,8 +223,6 @@ private Context mContext;
                     View.INVISIBLE, View.INVISIBLE, View.INVISIBLE, View.INVISIBLE);
         }
     }
-
-
 
     public void changeStartButtonSize(int size) {
         ViewGroup.LayoutParams lp = startButton.getLayoutParams();

@@ -1,5 +1,6 @@
 package com.example.administrator.pandatvsecond.moudle.pandalive;
 
+
 import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.Toast;
@@ -7,8 +8,15 @@ import android.widget.Toast;
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
+import com.example.administrator.pandatvsecond.model.bean.EspeciallyShowBean;
+import com.example.administrator.pandatvsecond.model.bean.GGShowBean;
+import com.example.administrator.pandatvsecond.model.bean.GoodTimeBean;
 import com.example.administrator.pandatvsecond.model.bean.LiveFragmentBean;
 import com.example.administrator.pandatvsecond.model.bean.MoreEyeBean;
+import com.example.administrator.pandatvsecond.model.bean.NoBearBean;
+import com.example.administrator.pandatvsecond.model.bean.OriginalNewsBean;
+import com.example.administrator.pandatvsecond.model.bean.PandaFileBean;
+import com.example.administrator.pandatvsecond.model.bean.PandaTopBean;
 import com.example.administrator.pandatvsecond.model.bean.WatchTalkBean;
 import com.example.administrator.pandatvsecond.moudle.pandalive.adapter.LiveFragmentAdapter;
 import com.example.administrator.pandatvsecond.moudle.pandalive.common.LiveBaseFragment;
@@ -104,4 +112,45 @@ public class LiveFragment extends BaseFragment implements LiveContract.View{
     public void WatchTalkResult(List<WatchTalkBean.DataBean.ContentBean> content) {
 
     }
+
+    @Override
+    public void GoodTimeBeanResult(GoodTimeBean goodTimeBean) {
+
+    }
+
+    @Override
+    public void NoBeerBeanResult(NoBearBean noBearBean) {
+
+    }
+
+    @Override
+    public void GGShowBeanResult(GGShowBean ggShowBean) {
+
+    }
+
+    @Override
+    public void PandaFileResult(PandaFileBean pandaFileBean) {
+
+    }
+
+    @Override
+    public void PandaTopBeanResult(PandaTopBean pandaTopBean) {
+
+    }
+
+    @Override
+    public void PandaThingsBeanResult(NoBearBean noBearBean) {
+
+    }
+
+    @Override
+    public void EspeciallyShowBeanResult(EspeciallyShowBean especiallyShowBean) {
+
+    }
+
+    @Override
+    public void OriginalNewsBeanResult(OriginalNewsBean originalNewsBean) {
+
+    }
+
 }

@@ -2,12 +2,10 @@ package com.example.administrator.pandatvsecond.moudle.pandahome;
 
 import android.graphics.drawable.Drawable;
 
-import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.model.bean.HomeBean;
 import com.example.administrator.pandatvsecond.model.biz.HomeMoudle;
 import com.example.administrator.pandatvsecond.model.biz.HomeMoudleImpl;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
-import com.example.administrator.pandatvsecond.util.ACache;
 import com.example.administrator.pandatvsecond.util.MineLog;
 
 /**
@@ -17,9 +15,7 @@ import com.example.administrator.pandatvsecond.util.MineLog;
 public class HomePresenter implements HomeContract.Presenter {
     private HomeContract.View homeView;
     private HomeMoudle homeMoudle;
-    private ACache aCache = ACache.get(App.context);
-
-    public HomePresenter(HomeContract.View homeView) {
+    public HomePresenter(HomeContract.View homeView){
         this.homeView = homeView;
         homeView.setPresenter(this);
         this.homeMoudle = new HomeMoudleImpl();
@@ -27,33 +23,29 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void start() {
-        HomeBean homebean = (HomeBean) aCache.getAsObject("HomeBean");
-        if (homebean == null) {
-            homeMoudle.loadHomeData(new MyCallBack<HomeBean>() {
-                @Override
-                public void onSuccess(Drawable drawable) {
+        homeView.showProgress();
+        homeMoudle.loadHomeData(new MyCallBack<HomeBean>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
 
-                }
+            }
 
-                @Override
-                public void onSusses(HomeBean homeBean) {
-                    MineLog.d("Home", "网络请求回调成功");
-                    homeView.setResult(homeBean);
-                }
+            @Override
+            public void onSusses(HomeBean homeBean) {
+                MineLog.d("Home", "网络请求回调成功");
+                homeView.setResult(homeBean);
+                homeView.dismissProgress();
+            }
 
-                @Override
-                public void onsusses(String string) {
+            @Override
+            public void onsusses(String string) {
 
-                }
+            }
 
-                @Override
-                public void onError(String msg) {
-                    MineLog.d("Home", "网络请求回调失败" + msg);
-                }
-            });
-        } else
-            homeView.setResult(homebean);
-
-
+            @Override
+            public void onError(String msg) {
+                MineLog.d("Home", "网络请求回调失败"+msg);
+            }
+        });
     }
 }

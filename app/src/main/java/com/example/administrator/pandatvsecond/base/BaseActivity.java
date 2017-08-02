@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.administrator.pandatvsecond.app.App;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.ButterKnife;
 
@@ -31,6 +32,15 @@ public abstract class BaseActivity extends AppCompatActivity{
     protected abstract int getLauoutId();
     protected abstract void loadData();
     protected abstract void initView();
+
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
 
     public void setParams(Bundle bundle){
 

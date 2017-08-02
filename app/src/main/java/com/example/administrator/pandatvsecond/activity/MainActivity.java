@@ -1,6 +1,5 @@
 package com.example.administrator.pandatvsecond.activity;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -81,8 +80,8 @@ public class MainActivity extends BaseActivity{
 
         switch (view.getId()) {
             case R.id.personImg:
-          Intent intent = new Intent(MainActivity.this, PersonCenterActivity.class);
-          startActivity(intent);
+//          Intent intent = new Intent(MainActivity.this, PersonCenterActivity.class);
+//          startActivity(intent);
                 break;
             case R.id.hudongImg:
                 break;

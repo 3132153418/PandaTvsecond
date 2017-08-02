@@ -2,6 +2,7 @@ package com.example.administrator.pandatvsecond.moudle.pandahome.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -79,17 +80,18 @@ public class HomeRecycleviewAdapter extends RecyclerView.Adapter {
                 PandaLiveShowHolder pandaliveshowHolder = new PandaLiveShowHolder(pandaliveshow);
                 return pandaliveshowHolder;
             case PANDAWONDERFULTIME:
-                View pandawonderfultime = inflater.inflate(R.layout.home_banner, null);
+                View pandawonderfultime = inflater.inflate(R.layout.home_pandawonderfultime, null);
                 PandaWonderfulTimeHolder pandawonderfultimeHolder = new PandaWonderfulTimeHolder(pandawonderfultime);
                 return pandawonderfultimeHolder;
             case PANDAGGSHOW:
-                View pandaggshow = inflater.inflate(R.layout.home_banner, null);
+                View pandaggshow = inflater.inflate(R.layout.home_pandaggshow, null);
                 PandaGGShowHolder pandaggshowHolder = new PandaGGShowHolder(pandaggshow);
                 return pandaggshowHolder;
             case LIVECHINA:
-                View livechina = inflater.inflate(R.layout.home_banner, null);
+                View livechina = inflater.inflate(R.layout.home_livechina, null);
                 LiveChinaHolder liveChinaHolder = new LiveChinaHolder(livechina);
                 return liveChinaHolder;
+
         }
         return null;
     }
@@ -146,8 +148,29 @@ public class HomeRecycleviewAdapter extends RecyclerView.Adapter {
                 HomeBean.DataBean.PandaliveBean pandaliveBean = (HomeBean.DataBean.PandaliveBean) home_datas.get(position);
                 List<HomeBean.DataBean.PandaliveBean.ListBean> list = pandaliveBean.getList();
                 PandaLiveShowHolder pandaLiveShowHolder = (PandaLiveShowHolder) holder;
-                pandaLiveShowHolder.pandaliveshow_recyclerview.setLayoutManager(new GridLayoutManager(context,3));
-                pandaLiveShowHolder.pandaliveshow_recyclerview.setAdapter(new PandaLiveShowAdapter(list,context));
+                pandaLiveShowHolder.pandaliveshow_recyclerview.setLayoutManager(new GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, true));
+                pandaLiveShowHolder.pandaliveshow_recyclerview.setAdapter(new PandaLiveShowAdapter(list, context));
+                break;
+            case PANDAWONDERFULTIME:
+                PandaWonderfulTimeHolder pandaWonderfulTimeHolder = (PandaWonderfulTimeHolder) holder;
+                HomeBean.DataBean.AreaBean areaBean = (HomeBean.DataBean.AreaBean) home_datas.get(position);
+                List<HomeBean.DataBean.AreaBean.ListscrollBean> listscroll = areaBean.getListscroll();
+                pandaWonderfulTimeHolder.pandawonderfultime_recyclerview.setLayoutManager(new GridLayoutManager(context, 2, GridLayoutManager.VERTICAL, true));
+                pandaWonderfulTimeHolder.pandawonderfultime_recyclerview.setAdapter(new PandaWonderfulTimeAdapter(listscroll, context));
+                break;
+            case PANDAGGSHOW:
+                PandaGGShowHolder pandaGGShowHolder = (PandaGGShowHolder) holder;
+                HomeBean.DataBean.WallliveBean wallliveBean = (HomeBean.DataBean.WallliveBean) home_datas.get(position);
+                List<HomeBean.DataBean.WallliveBean.ListBeanX> list1 = wallliveBean.getList();
+                pandaGGShowHolder.pandaggshow_recyclerview.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true));
+                pandaGGShowHolder.pandaggshow_recyclerview.setAdapter(new PandaGGShowAdapter(list1,context));
+                break;
+            case LIVECHINA:
+                LiveChinaHolder pandaLiveChinaHolder = (LiveChinaHolder) holder;
+                HomeBean.DataBean.ChinaliveBean chinaliveBean = (HomeBean.DataBean.ChinaliveBean) home_datas.get(position);
+                List<HomeBean.DataBean.ChinaliveBean.ListBeanXX> list2 = chinaliveBean.getList();
+                pandaLiveChinaHolder.pandalivechina_recyclerview.setLayoutManager(new GridLayoutManager(context, 3, GridLayoutManager.VERTICAL, true));
+                pandaLiveChinaHolder.pandalivechina_recyclerview.setAdapter(new PandaLiveChinaAdapter(list2,context));
                 break;
         }
     }
@@ -204,26 +227,30 @@ public class HomeRecycleviewAdapter extends RecyclerView.Adapter {
     }
 
     class PandaWonderfulTimeHolder extends RecyclerView.ViewHolder {
+        private final RecyclerView pandawonderfultime_recyclerview;
 
         public PandaWonderfulTimeHolder(View itemView) {
             super(itemView);
-
+            ((TextView) itemView.findViewById(R.id.pandawonderfultime_commont).findViewById(R.id.tv_home_commont)).setText("精彩一刻");
+            pandawonderfultime_recyclerview = (RecyclerView) itemView.findViewById(R.id.pandawonderfultime_recyclerview);
         }
     }
 
     class PandaGGShowHolder extends RecyclerView.ViewHolder {
-
+        private final RecyclerView pandaggshow_recyclerview;
         public PandaGGShowHolder(View itemView) {
             super(itemView);
-
+            ((TextView) itemView.findViewById(R.id.pandaggshow_commont).findViewById(R.id.tv_home_commont)).setText("滚滚视频");
+            pandaggshow_recyclerview = (RecyclerView) itemView.findViewById(R.id.pandaggshow_recyclerview);
         }
     }
 
     class LiveChinaHolder extends RecyclerView.ViewHolder {
-
+        private final RecyclerView pandalivechina_recyclerview;
         public LiveChinaHolder(View itemView) {
             super(itemView);
-
+            ((TextView) itemView.findViewById(R.id.pandalivechina_commont).findViewById(R.id.tv_home_commont)).setText("直播中国");
+            pandalivechina_recyclerview = (RecyclerView) itemView.findViewById(R.id.pandalivechina_recyclerview);
         }
     }
 

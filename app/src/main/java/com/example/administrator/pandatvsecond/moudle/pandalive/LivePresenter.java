@@ -2,8 +2,15 @@ package com.example.administrator.pandatvsecond.moudle.pandalive;
 
 import android.graphics.drawable.Drawable;
 
+import com.example.administrator.pandatvsecond.model.bean.EspeciallyShowBean;
+import com.example.administrator.pandatvsecond.model.bean.GGShowBean;
+import com.example.administrator.pandatvsecond.model.bean.GoodTimeBean;
 import com.example.administrator.pandatvsecond.model.bean.LiveFragmentBean;
 import com.example.administrator.pandatvsecond.model.bean.MoreEyeBean;
+import com.example.administrator.pandatvsecond.model.bean.NoBearBean;
+import com.example.administrator.pandatvsecond.model.bean.OriginalNewsBean;
+import com.example.administrator.pandatvsecond.model.bean.PandaFileBean;
+import com.example.administrator.pandatvsecond.model.bean.PandaTopBean;
 import com.example.administrator.pandatvsecond.model.bean.WatchTalkBean;
 import com.example.administrator.pandatvsecond.model.biz.LiveMoudle;
 import com.example.administrator.pandatvsecond.model.biz.LiveMoudleImpl;
@@ -111,5 +118,221 @@ public class LivePresenter implements LiveContract.Presenter {
 
                 }
             });
+    }
+
+    @Override
+    public void requestGoodTimeFragmentData() {
+        liveView.showProgress();
+            liveMoudle.loadGoodTimeBeanData(new MyCallBack<GoodTimeBean>() {
+                @Override
+                public void onSuccess(Drawable drawable) {
+
+                }
+
+                @Override
+                public void onSusses(GoodTimeBean goodTimeBean) {
+                        liveView.GoodTimeBeanResult(goodTimeBean);
+                    liveView.dismissProgress();
+                }
+
+                @Override
+                public void onsusses(String string) {
+
+                }
+
+                @Override
+                public void onError(String msg) {
+
+                }
+            });
+    }
+
+    @Override
+    public void requestNobeerFragmentData() {
+        liveView.showProgress();
+        liveMoudle.loadNoBeerBeanData(new MyCallBack<NoBearBean>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
+            public void onSusses(NoBearBean noBearBean) {
+                liveView.NoBeerBeanResult(noBearBean);
+                liveView.dismissProgress();
+            }
+
+            @Override
+            public void onsusses(String string) {
+
+            }
+
+            @Override
+            public void onError(String msg) {
+
+            }
+        });
+    }
+
+    @Override
+    public void requestGGShowFragmentData() {
+        liveView.showProgress();
+        liveMoudle.loadGGShowBeanData(new MyCallBack<GGShowBean>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
+            public void onSusses(GGShowBean ggShowBean) {
+                liveView.GGShowBeanResult(ggShowBean);
+                liveView.dismissProgress();
+            }
+
+            @Override
+            public void onsusses(String string) {
+
+            }
+
+            @Override
+            public void onError(String msg) {
+
+            }
+        });
+    }
+
+    @Override
+    public void requestPandaFileFragmentData() {
+        liveView.showProgress();
+        liveMoudle.loadPandaFileData(new MyCallBack<PandaFileBean>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
+            public void onSusses(PandaFileBean pandaFileBean) {
+                liveView.PandaFileResult(pandaFileBean);
+                liveView.dismissProgress();
+            }
+
+            @Override
+            public void onsusses(String string) {
+
+            }
+
+            @Override
+            public void onError(String msg) {
+
+            }
+        });
+    }
+
+    @Override
+    public void requestPandaTopFragmentData() {
+        liveView.showProgress();
+        liveMoudle.loadPandaTopBeanData(new MyCallBack<PandaTopBean>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
+            public void onSusses(PandaTopBean pandaTopBean) {
+                liveView.PandaTopBeanResult(pandaTopBean);
+                liveView.dismissProgress();
+            }
+
+            @Override
+            public void onsusses(String string) {
+
+            }
+
+            @Override
+            public void onError(String msg) {
+
+            }
+        });
+    }
+
+    @Override
+    public void requestPandaThingsFragmentData() {
+        liveView.showProgress();
+        liveMoudle.loadPandaThingsBeanData(new MyCallBack<NoBearBean>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
+            public void onSusses(NoBearBean noBearBean) {
+                liveView.PandaThingsBeanResult(noBearBean);
+                liveView.dismissProgress();
+            }
+
+            @Override
+            public void onsusses(String string) {
+
+            }
+
+            @Override
+            public void onError(String msg) {
+
+            }
+        });
+    }
+
+    @Override
+    public void requestEspeciallyShowFragmentData() {
+        liveView.showProgress();
+        liveMoudle.loadEspeciallyShowBeanData(new MyCallBack<EspeciallyShowBean>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
+            public void onSusses(EspeciallyShowBean especiallyShowBean) {
+                liveView.EspeciallyShowBeanResult(especiallyShowBean);
+                liveView.dismissProgress();
+            }
+
+            @Override
+            public void onsusses(String string) {
+
+            }
+
+            @Override
+            public void onError(String msg) {
+
+            }
+        });
+    }
+
+    @Override
+    public void requestOriginalNewsFragmentData() {
+        liveView.showProgress();
+        liveMoudle.loadOriginalNewsBeanData(new MyCallBack<OriginalNewsBean>() {
+            @Override
+            public void onSuccess(Drawable drawable) {
+
+            }
+
+            @Override
+            public void onSusses(OriginalNewsBean originalNewsBean) {
+                liveView.OriginalNewsBeanResult(originalNewsBean);
+                liveView.dismissProgress();
+            }
+
+            @Override
+            public void onsusses(String string) {
+
+            }
+
+            @Override
+            public void onError(String msg) {
+
+            }
+        });
     }
 }

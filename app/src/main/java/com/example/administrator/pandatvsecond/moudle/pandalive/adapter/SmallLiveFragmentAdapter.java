@@ -28,7 +28,7 @@ public class SmallLiveFragmentAdapter extends FragmentPagerAdapter{
 
     @Override
     public int getCount() {
-        return baseFragments.size();
+        return 2;
     }
 
     @Override

@@ -8,7 +8,6 @@ import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.HomeBean;
 import com.example.administrator.pandatvsecond.moudle.pandahome.adapter.HomeRecycleviewAdapter;
-import com.example.administrator.pandatvsecond.util.MineLog;
 import com.example.administrator.pandatvsecond.widget.manager.LoadingDialog;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
@@ -40,7 +39,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
         home_recyclerview.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
             public void onRefresh() {
-
+                presenter.start();
             }
 
             @Override
@@ -55,18 +54,20 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
 
     @Override
     protected void loadData() {
-        LoadingDialog.show(getActivity());
         presenter.start();
     }
 
     @Override
     public void setResult(HomeBean homeBean) {
+        home_datas.clear();
         home_datas.add(homeBean.getData().getBigImg());
         home_datas.add(homeBean.getData().getPandaeye());
         home_datas.add(homeBean.getData().getPandalive());
-        MineLog.d("TAG","home_datas"+home_datas.size());
+        home_datas.add(homeBean.getData().getArea());
+        home_datas.add(homeBean.getData().getWalllive());
+        home_datas.add(homeBean.getData().getChinalive());
         homeRecycleviewAdapter.notifyDataSetChanged();
-        LoadingDialog.dimiss();
+        home_recyclerview.refreshComplete();
     }
 
     @Override

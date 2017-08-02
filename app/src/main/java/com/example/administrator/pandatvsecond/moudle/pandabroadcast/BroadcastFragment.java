@@ -1,5 +1,6 @@
 package com.example.administrator.pandatvsecond.moudle.pandabroadcast;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidkun.PullToRefreshRecyclerView;
+import com.androidkun.callback.PullToRefreshListener;
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.R;
+import com.example.administrator.pandatvsecond.activity.video.VideoActivity;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.BroadcastBean;
 import com.example.administrator.pandatvsecond.moudle.pandabroadcast.adapter.BroadcastAdapter;
@@ -20,7 +23,7 @@ import java.util.List;
  * Created by Administrator on 2017/7/28.
  */
 
-public class BroadcastFragment extends BaseFragment implements BroadcastContract.View{
+public class BroadcastFragment extends BaseFragment implements BroadcastContract.View,PullToRefreshListener{
 
     private List<BroadcastBean.ListBean> list = new ArrayList<>();
     private ImageView imageView;
@@ -38,16 +41,17 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContract
 
         new BroadcastPresenter(this);
 
-        inflat = LayoutInflater.from(getContext()).inflate(R.layout.broadcast_img_item, null);
+        inflat = LayoutInflater.from(getActivity()).inflate(R.layout.broadcast_img_item, null);
         imageView = (ImageView) inflat.findViewById(R.id.broadcast_ImageView);
         textView = (TextView) inflat.findViewById(R.id.broadcast_Image_title);
         pullToRefreshRecyclerView = (PullToRefreshRecyclerView) view.findViewById(R.id.broadcast_PullRecy);
-        LinearLayoutManager managers = new LinearLayoutManager(getContext());
+        LinearLayoutManager managers = new LinearLayoutManager(getActivity());
         managers.setOrientation(LinearLayoutManager.VERTICAL);
 
         pullToRefreshRecyclerView.setLayoutManager(managers);
         pullToRefreshRecyclerView.addHeaderView(inflat);
         pullToRefreshRecyclerView.setPullRefreshEnabled(true);
+
 
     }
 
@@ -81,17 +85,35 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContract
     @Override
     public void onRefresh() {
 
+        pullToRefreshRecyclerView.setPullToRefreshListener(new PullToRefreshListener() {
+            @Override
+            public void onRefresh() {
+                list.clear();
+                presenter.start();
+                pullToRefreshRecyclerView.setRefreshComplete();
+            }
+
+            @Override
+            public void onLoadMore() {
+
+            }
+        });
+
+    }
+
+    @Override
+    public void onLoadMore() {
+
     }
 
     @Override
     public void setResult(BroadcastBean broadcastBean) {
 
-        Glide.with(getContext()).load(broadcastBean.getBigImg().get(0).getImage()).into(imageView);
+        Glide.with(getActivity()).load(broadcastBean.getBigImg().get(0).getImage()).into(imageView);
         textView.setText(broadcastBean.getBigImg().get(0).getTitle());
         List<BroadcastBean.ListBean> listBean = broadcastBean.getList();
         list.addAll(listBean);
-        BroadcastAdapter adapter = new BroadcastAdapter(list, getContext());
+        BroadcastAdapter adapter = new BroadcastAdapter(list, getActivity());
         pullToRefreshRecyclerView.setAdapter(adapter);
     }
-
 }

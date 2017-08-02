@@ -18,6 +18,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 
+
 /**
  * 注册界面
  */
@@ -108,7 +109,7 @@ public class EmileFragment extends BaseFragment implements EmileContract.View {
     @Override
     public void toLogin() {
 
-        Intent intent = new Intent(getContext(), LoginActivity.class);
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
         startActivity(intent);
 
     }

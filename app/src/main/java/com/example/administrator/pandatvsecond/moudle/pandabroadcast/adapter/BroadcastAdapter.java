@@ -21,6 +21,15 @@ import java.util.List;
 public class BroadcastAdapter extends RecyclerView.Adapter {
     private List<BroadcastBean.ListBean> mlist;
     private Context context;
+    private PaperCallBack paperCallBack;
+
+    public void setPaperCallBack(PaperCallBack paperCallBack) {
+        this.paperCallBack = paperCallBack;
+    }
+
+    public interface PaperCallBack {
+        void back(int layoutPosition);
+    }
 
     public BroadcastAdapter(List<BroadcastBean.ListBean> mlist, Context context) {
         this.mlist = mlist;
@@ -39,6 +48,7 @@ public class BroadcastAdapter extends RecyclerView.Adapter {
         Glide.with(context).load(mlist.get(position).getImage()).into(viewHolder.imageView);
         viewHolder.name.setText(mlist.get(position).getTitle());
         viewHolder.time.setText(mlist.get(position).getVideoLength());
+
     }
     class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;

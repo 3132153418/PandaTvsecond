@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.model.bean.HomeBean;
+import com.example.administrator.pandatvsecond.util.MineLog;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class PandaLiveShowAdapter extends RecyclerView.Adapter<PandaLiveShowAdap
     private Context context;
 
     public PandaLiveShowAdapter(List<HomeBean.DataBean.PandaliveBean.ListBean> list, Context context) {
+        MineLog.d("PandaLiveShowAdapter","集合的长度为:"+list.size());
         this.list = list;
         this.context = context;
     }
@@ -34,8 +36,12 @@ public class PandaLiveShowAdapter extends RecyclerView.Adapter<PandaLiveShowAdap
 
     @Override
     public void onBindViewHolder(ViewHoler holder, int position) {
-        holder.tv_pandaliveshow_recycler.setText(list.get(position).getTitle());
-        Glide.with(context).load(list.get(position).getImage()).into(holder.iv_pandaliveshow_recycler);
+        String title = list.get(position).getTitle();
+        String image = list.get(position).getImage();
+        MineLog.d("PandaLiveShowAdapter","每个Item的数据为"+title+"--"+image);
+        Glide.with(context).load(image).into(holder.iv_pandaliveshow_recycler);
+        holder.tv_pandaliveshow_recycler.setText(title);
+
     }
 
     @Override
