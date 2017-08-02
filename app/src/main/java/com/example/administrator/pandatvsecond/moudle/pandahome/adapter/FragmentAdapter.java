@@ -1,4 +1,4 @@
-package com.example.administrator.pandatvsecond.activity.adapter;
+package com.example.administrator.pandatvsecond.moudle.pandahome.adapter;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;

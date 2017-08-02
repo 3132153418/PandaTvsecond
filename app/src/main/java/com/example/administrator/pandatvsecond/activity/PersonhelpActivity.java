@@ -9,7 +9,7 @@ import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.moudle.mine.setting.ChangJianPloblem;
 import com.example.administrator.pandatvsecond.moudle.mine.setting.YuDaoPloblem;
-import com.example.administrator.pandatvsecond.util.ViewPagerAdapter2;
+import com.example.administrator.pandatvsecond.moudle.mine.adapter.ViewPagerAdapter2;
 
 import java.util.ArrayList;
 import java.util.List;

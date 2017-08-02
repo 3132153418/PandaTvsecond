@@ -1,5 +1,6 @@
 package com.example.administrator.pandatvsecond.activity;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -19,7 +20,7 @@ import com.example.administrator.pandatvsecond.widget.manager.ToastManager;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-//主界面
+//主界面        修改
 public class MainActivity extends BaseActivity{
     @BindView(R.id.iconImg)
     ImageView iconImg;
@@ -80,10 +81,11 @@ public class MainActivity extends BaseActivity{
 
         switch (view.getId()) {
             case R.id.personImg:
-//          Intent intent = new Intent(MainActivity.this, PersonCenterActivity.class);
-//          startActivity(intent);
+          Intent intent = new Intent(MainActivity.this, PersonCenterActivity.class);
+          startActivity(intent);
                 break;
             case R.id.hudongImg:
+
                 break;
             case R.id.shouye:
                 showTitle(null,HOMETYPE);

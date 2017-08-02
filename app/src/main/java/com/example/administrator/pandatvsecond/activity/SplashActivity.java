@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.administrator.pandatvsecond.R;
-import com.example.administrator.pandatvsecond.activity.adapter.FragmentAdapter;
+import com.example.administrator.pandatvsecond.moudle.pandahome.adapter.FragmentAdapter;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.widget.manager.SharedPreferencesManager;
 

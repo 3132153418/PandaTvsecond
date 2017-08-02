@@ -9,7 +9,7 @@ import com.example.administrator.pandatvsecond.model.bean.PersonRegister;
 import com.example.administrator.pandatvsecond.model.biz.IMineModel;
 import com.example.administrator.pandatvsecond.model.biz.MineModeImpl;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
-import com.example.administrator.pandatvsecond.widget.manager.Keys;
+import com.example.administrator.pandatvsecond.config.Keys;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
