@@ -19,6 +19,7 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 /**
  * Created by Administrator on 2017/8/1.
+ * 测试一下
  */
 
 public class GGWebViewActivity extends BaseActivity implements GGWebContract.View {
