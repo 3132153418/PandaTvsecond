@@ -46,7 +46,7 @@ public class HigHlightListviewAdapter extends BaseAdapter {
              viewHolder=new ViewHolder();
              view = View.inflate(context, R.layout.originalnewsrecycler_itemtwo, null);
              viewHolder.OriginalNewsItemTitle= (TextView) view.findViewById(R.id.OriginalNews_item_title);
-             viewHolder.OriginalNewsItemImg= (ImageView) view.findViewById(R.id.OriginalNews_item_img);
+             viewHolder.OriginalNewsItemImg= (ImageView) view.findViewById(R.id.originalnews_item_img);
              viewHolder.OriginalNewsItemTime= (TextView) view.findViewById(R.id.OriginalNews_item_time);
              viewHolder.checkBox= (RadioButton) view.findViewById(R.id.original_radio);
              view.setTag(viewHolder);

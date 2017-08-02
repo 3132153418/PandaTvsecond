@@ -2,10 +2,13 @@ package com.example.administrator.pandatvsecond.activity.video;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.model.bean.VideoJingCaiBean;
+import com.example.administrator.pandatvsecond.model.db.VideoCollectBean;
+import com.example.administrator.pandatvsecond.util.GreeDaoUtils;
 
 import java.util.List;
 
@@ -18,10 +21,12 @@ import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 public class VideoActivity extends BaseActivity implements VideoContract.View {
     private VideoContract.Presenter presenter;
-    private String pid ,title;
+    private String pid ,title,img;
     private String url;
     private JCVideoPlayerStandard jcVideoPlayerStandard;
-
+   private GreeDaoUtils greeDaoUtils=new GreeDaoUtils();
+    private VideoCollectBean videoCollectBean;
+    private boolean xx;
     @Override
     protected int getLauoutId() {
         return R.layout.activity_video;
@@ -29,7 +34,6 @@ public class VideoActivity extends BaseActivity implements VideoContract.View {
 
     @Override
     protected void loadData() {
-
         presenter.setJcVideo(pid);
     }
 
@@ -40,6 +44,7 @@ public class VideoActivity extends BaseActivity implements VideoContract.View {
         Intent intent = getIntent();
         pid= intent.getStringExtra("pid");
        title = intent.getStringExtra("title");
+       img = intent.getStringExtra("image");
     }
 
     @Override
@@ -59,8 +64,39 @@ public class VideoActivity extends BaseActivity implements VideoContract.View {
         jcVideoPlayerStandard.setMonitor(new JCVideoPlayerStandard.imgClickon() {
             @Override
             public void Monitor(View view) {
+                List<VideoCollectBean> vide = greeDaoUtils.select("video");
+                if(vide.size()==0){
+                     videoCollectBean=new VideoCollectBean();
+                    videoCollectBean.setTitle(videoJingCaiBean.getTitle());
+                    videoCollectBean.setTime(videoJingCaiBean.getF_pgmtime());
+                    videoCollectBean.setUrl(videoJingCaiBean.getHls_url());
+                    videoCollectBean.setImg(img);
+                    videoCollectBean.setBb(true);
+                    greeDaoUtils.add("video",videoCollectBean);
+                }else{
+                    for (int x=0;x<vide.size();x++){
+                        VideoCollectBean videoCollectBean = vide.get(x);
+                        if(videoJingCaiBean.getTitle().equals(videoCollectBean.getTime())){
+                            xx=true;
+                            Toast.makeText(VideoActivity.this, "已存在", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    if(xx){
+                        xx=false;
 
+                    }else{
+                        videoCollectBean=new VideoCollectBean();
+                        videoCollectBean.setTitle(videoJingCaiBean.getTitle());
+                        videoCollectBean.setTime(videoJingCaiBean.getF_pgmtime());
+                        videoCollectBean.setUrl(pid);
+                        videoCollectBean.setBb(true);
+                        videoCollectBean.setImg(img);
+                        greeDaoUtils.add("video",videoCollectBean);
+                        Toast.makeText(VideoActivity.this, "收藏成功", Toast.LENGTH_SHORT).show();
 
+                    }
+
+                }
             }
 
             @Override
@@ -124,4 +160,6 @@ public class VideoActivity extends BaseActivity implements VideoContract.View {
     public void onRefresh() {
 
     }
+
+
 }

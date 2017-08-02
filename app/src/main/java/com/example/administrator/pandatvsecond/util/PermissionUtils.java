@@ -5,4 +5,5 @@ package com.example.administrator.pandatvsecond.util;
  */
 
 public class PermissionUtils {
+
 }

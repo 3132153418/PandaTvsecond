@@ -1,4 +1,4 @@
-package com.example.administrator.pandatvsecond.moudle.pandalivechina;
+package com.example.administrator.pandatvsecond.widget.manager;
 
 import android.content.Context;
 import android.os.Vibrator;

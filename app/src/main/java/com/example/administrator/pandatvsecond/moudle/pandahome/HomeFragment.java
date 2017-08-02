@@ -83,11 +83,16 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
 
             @Override
             public void setTypeLive(HomeBean.DataBean.PandaliveBean.ListBean list) {
-               /* String pid = list.getVid();
+
+                String pid = list.getVid();
                 String title = list.getTitle();
+                String image = list.getImage();
                 Intent intent = new Intent(getActivity(),VideoActivity.class);
                 intent.putExtra("pid",pid);
-                startActivity(intent);*/
+                intent.putExtra("title",title);
+                intent.putExtra("image",image);
+                MineLog.d("pid",pid);
+                startActivity(intent);
             }
 
             @Override
@@ -95,42 +100,48 @@ public class HomeFragment extends BaseFragment implements HomeContract.View{
 
                 String pid = listscroll.getPid();
                 String title = listscroll.getTitle();
+                String image = listscroll.getImage();
                 Intent intent = new Intent(getActivity(),VideoActivity.class);
                 intent.putExtra("pid",pid);
                 intent.putExtra("title",title);
+                intent.putExtra("image",image);
                 MineLog.d("pid",pid);
                 startActivity(intent);
             }
 
             @Override
             public void setTypeGG(HomeBean.DataBean.WallliveBean.ListBeanX items) {
-
                 String pid = items.getVid();
                 String title = items.getTitle();
+                String image = items.getImage();
                 Intent intent = new Intent(getActivity(),VideoActivity.class);
                 intent.putExtra("pid",pid);
                 intent.putExtra("title",title);
+                intent.putExtra("image",image);
                 startActivity(intent);
             }
 
             @Override
             public void setTypeLiveChina(HomeBean.DataBean.ChinaliveBean.ListBeanXX list2) {
-
-              /*  String pid = list2.getVid();
+                String pid = list2.getVid();
                 String title = list2.getTitle();
+                String image = list2.getImage();
                 Intent intent = new Intent(getActivity(),VideoActivity.class);
                 intent.putExtra("pid",pid);
                 intent.putExtra("title",title);
-                startActivity(intent);*/
+                intent.putExtra("image",image);
+                startActivity(intent);
             }
 
             @Override
             public void setTypeLunBo(HomeBean.DataBean.BigImgBean imgBean) {
                 String pid = imgBean.getPid();
                 String title = imgBean.getTitle();
+                String image = imgBean.getImage();
                 Intent intent = new Intent(getActivity(),VideoActivity.class);
                 intent.putExtra("pid",pid);
                 intent.putExtra("title",title);
+                intent.putExtra("image",image);
                 startActivity(intent);
             }
         });

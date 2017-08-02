@@ -47,13 +47,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.example.administrator.pandatvsecond.moudle.pandalivechina.DragGridView
+            <com.example.administrator.pandatvsecond.widget.manager.DragGridView
                 android:id="@+id/gridView_channel"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            </com.example.administrator.pandatvsecond.moudle.pandalivechina.DragGridView>>
+            </com.example.administrator.pandatvsecond.widget.manager.DragGridView>>
         </RelativeLayout>
 
         <TextView
@@ -65,12 +65,12 @@
             android:textColor="#fff"
             android:textSize="20dp" />
 
-        <com.example.administrator.pandatvsecond.moudle.pandalivechina.DragGridView
+        <com.example.administrator.pandatvsecond.widget.manager.DragGridView
             android:id="@+id/gridView_channel_other"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        </com.example.administrator.pandatvsecond.moudle.pandalivechina.DragGridView>
+        </com.example.administrator.pandatvsecond.widget.manager.DragGridView>
 
     </LinearLayout>
 

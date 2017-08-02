@@ -46,7 +46,7 @@ public class Highlights_Tab_Fragment extends BaseFragment {
 
 
     public void quer() {
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getContext(), "collect.db", null);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getActivity(), "video", null);
         SQLiteDatabase database = helper.getWritableDatabase();
         DaoMaster daoMaster = new DaoMaster(database);
         DaoSession daoSession = daoMaster.newSession();
@@ -62,7 +62,7 @@ public class Highlights_Tab_Fragment extends BaseFragment {
     }
 
     public void delect(VideoCollectBean videoCollectBean) {
-        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getContext(), "collect.db", null);
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(getActivity(), "video", null);
         SQLiteDatabase database = helper.getWritableDatabase();
         DaoMaster daoMaster = new DaoMaster(database);
         DaoSession daoSession = daoMaster.newSession();
@@ -83,7 +83,7 @@ public class Highlights_Tab_Fragment extends BaseFragment {
     @Override
     protected void loadData() {
         arr1 = new ArrayList<>();
-        adapter = new HigHlightListviewAdapter(arr1, getContext());
+        adapter = new HigHlightListviewAdapter(arr1, getActivity());
         highlightListview.setAdapter(adapter);
         quer();
         highlightListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -187,4 +187,6 @@ public class Highlights_Tab_Fragment extends BaseFragment {
         });
 
     }
+
+
 }

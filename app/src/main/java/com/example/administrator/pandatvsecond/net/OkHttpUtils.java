@@ -9,8 +9,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.app.App;
+import com.example.administrator.pandatvsecond.config.Keys;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
-
 import com.google.gson.Gson;
 
 import java.io.ByteArrayInputStream;
@@ -326,6 +326,7 @@ public class OkHttpUtils implements Ihttp {
         Glide.with(App.context).load(url).into(imageView);
 
     }
+
     public void loadImgCode(String url,final MyCallBack<Bundle> callback){
         Request request = new Request.Builder().url(url).build();
         okHttpClient.newCall(request).enqueue(new Callback() {
@@ -346,9 +347,18 @@ public class OkHttpUtils implements Ihttp {
                 byte[] bytes = response.body().bytes();
                 Headers headers = response.headers();
                 String jsessionId =  headers.get("Set-Cookie");
+//                for (int i = 0; i < headers.size(); i++){
+//                    String name = headers.name(i);
+//                    headers.get("Set-Cookie")
+//                    MyLog.d("abc","name = "+name);
+//                    if(name != null && name.contains("JSESSIONID") && !name.contains(";")){
+//                        jsessionId = headers.get(name);
+//                        break;
+//                    }
+//                }
                 final Bundle bundle = new Bundle();
-//                bundle.putString(Keys.JSESSIONID,jsessionId);
-//                bundle.putByteArray(Keys.IMGCODE,bytes);
+                bundle.putString(Keys.JSESSIONID,jsessionId);
+                bundle.putByteArray(Keys.IMGCODE,bytes);
 
                 //执行在子线程中
                 App.context.runOnUiThread(new Runnable() {

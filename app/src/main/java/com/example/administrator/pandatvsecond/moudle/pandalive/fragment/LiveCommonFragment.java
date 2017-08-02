@@ -98,9 +98,11 @@ public class LiveCommonFragment extends BaseFragment implements LiveContract.Vie
                 public void setOnItemListener(int postion) {
                     String pid = video.get(postion).getVid();
                     String title = video.get(postion).getT();
+                    String img = video.get(postion).getImg();
                     Intent intent = new Intent(getActivity(), VideoActivity.class);
                     intent.putExtra("pid",pid);
                     intent.putExtra("title",title);
+                    intent.putExtra("image",img);
                     startActivity(intent);
                 }
             });

@@ -252,6 +252,4 @@ public class GeRenXinXiActivity extends BaseActivity implements View.OnClickList
             }
         }
     }
-
-
 }

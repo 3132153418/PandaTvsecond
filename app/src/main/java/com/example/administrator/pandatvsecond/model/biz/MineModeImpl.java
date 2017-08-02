@@ -19,7 +19,7 @@ import java.util.Map;
 public class MineModeImpl implements IMineModel {
     @Override
     public void loadImgCode(MyCallBack<Bundle> callback) {
-        OkHttpUtils.getInstance().loadImgCode(Urls.IMGCODE,callback);
+    OkHttpUtils.getInstance().loadImgCode(Urls.IMGCODE,callback);
     }
 
 

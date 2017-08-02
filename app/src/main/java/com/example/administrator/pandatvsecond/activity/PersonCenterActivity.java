@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.administrator.pandatvsecond.R;
+import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.moudle.mine.collect.ShouCangActivity;
 import com.example.administrator.pandatvsecond.moudle.mine.history.HistoryActivity;
@@ -22,6 +23,13 @@ public class PersonCenterActivity extends BaseActivity implements View.OnClickLi
     private ImageView original_Back_Image;
     private TextView name_TextView;
 private ImageView touxiang;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        App.context=this;
+    }
+
     @Override
     protected void initView() {
         click_Login_LinearLayout = (LinearLayout) findViewById(R.id.click_Login_LinearLayout);
@@ -102,6 +110,5 @@ private ImageView touxiang;
                         break;
                 }
             }
-
         }
 }
