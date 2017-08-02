@@ -91,6 +91,7 @@ public class MainActivity extends BaseActivity{
                 break;
             case R.id.hudongImg:
                 startActivity(new Intent(MainActivity.this, OriginalActivity .class));
+                //给我传上去
                 break;
             case R.id.shouye:
                 showTitle(null,HOMETYPE);
