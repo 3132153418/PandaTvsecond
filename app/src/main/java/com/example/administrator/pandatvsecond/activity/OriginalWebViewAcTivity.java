@@ -26,6 +26,7 @@ import butterknife.OnClick;
  * Created by lenovo on 2017/7/21.
  */
 public class OriginalWebViewAcTivity extends BaseActivity {
+
     @BindView(R.id.original_web_back)
     ImageView originalWebBack;
     @BindView(R.id.original_web)
