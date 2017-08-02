@@ -60,6 +60,7 @@ public class VideoActivity extends BaseActivity implements VideoContract.View {
             @Override
             public void Monitor(View view) {
 
+
             }
 
             @Override
