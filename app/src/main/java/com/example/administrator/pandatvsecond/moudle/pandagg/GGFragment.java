@@ -26,8 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 滚滚视频
- */
+ * 滚滚视频但是规范化规范结核杆菌个 */
 
 public class GGFragment extends BaseFragment implements GGContract.View{
 
