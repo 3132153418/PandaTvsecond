@@ -5,4 +5,9 @@ package com.example.administrator.pandatvsecond.widget.manager;
  */
 
 public class BBB {
+
+
+
+
+
 }
