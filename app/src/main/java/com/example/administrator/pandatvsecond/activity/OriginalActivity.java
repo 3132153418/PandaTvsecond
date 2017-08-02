@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.example.administrator.pandatvsecond.R;
-import com.example.administrator.pandatvsecond.activity.adapter.Original_Adapter;
+import com.example.administrator.pandatvsecond.moudle.pandahome.adapter.Original_Adapter;
 import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.model.bean.OriginalBean;

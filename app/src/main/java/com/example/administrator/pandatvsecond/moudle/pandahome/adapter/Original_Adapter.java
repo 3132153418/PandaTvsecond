@@ -1,4 +1,4 @@
-package com.example.administrator.pandatvsecond.activity.adapter;
+package com.example.administrator.pandatvsecond.moudle.pandahome.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
