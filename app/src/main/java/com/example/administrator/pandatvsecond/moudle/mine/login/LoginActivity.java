@@ -15,6 +15,13 @@ import com.example.administrator.pandatvsecond.activity.RegisterActivity;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.model.bean.LoginEntity;
 import com.example.administrator.pandatvsecond.moudle.mine.pwd.PassWordActivity;
+import com.umeng.socialize.UMAuthListener;
+import com.umeng.socialize.UMShareAPI;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.utils.SocializeUtils;
+
+import java.util.Map;
+import java.util.Set;
 
 /**
  * 登录界面
@@ -68,7 +75,7 @@ public class LoginActivity extends BaseActivity  implements View.OnClickListener
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-//        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
+        UMShareAPI.get(this).onActivityResult(requestCode, resultCode, data);
 
     }
 
@@ -79,10 +86,10 @@ public class LoginActivity extends BaseActivity  implements View.OnClickListener
                 finish();
                 break;
             case R.id.qqLogin:
-//                UMShareAPI.get(this).doOauthVerify(this, SHARE_MEDIA.QQ, authListener);
+                UMShareAPI.get(this).doOauthVerify(this, SHARE_MEDIA.QQ, authListener);
                 break;
             case R.id.weibo_Login:
-//                UMShareAPI.get(this).doOauthVerify(this, SHARE_MEDIA.SINA, authListener);
+                UMShareAPI.get(this).doOauthVerify(this, SHARE_MEDIA.SINA, authListener);
                 break;
             case R.id.register_Text:
                 Intent intent = new Intent(this,RegisterActivity.class);
@@ -104,45 +111,45 @@ public class LoginActivity extends BaseActivity  implements View.OnClickListener
                 break;
         }
     }
-//    UMAuthListener authListener = new UMAuthListener() {
-//
-//        @Override
-//        public void onStart(SHARE_MEDIA platform) {
-//            SocializeUtils.safeShowDialog(dialog);
-//        }
-//
-//        @Override
-//        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
-//            SocializeUtils.safeCloseDialog(dialog);
-//            Toast.makeText(LoginActivity.this, "成功了", Toast.LENGTH_LONG).show();
-//            Set<String> keySet = data.keySet();
-//            String s;
-//            for (String key : keySet) {
-//                s = data.get(key);
-//                Log.i("===========", s);
-//            }
-//            String names = data.get("names");
-//            String iconurl = data.get("iconurl");
-//            Log.i("==", names + iconurl);
-//            Intent in = getIntent();
-//            in.putExtra("names", names);
-//            setResult(10, in);
-//            finish();
-//
-//        }
-//
-//        @Override
-//        public void onError(SHARE_MEDIA platform, int action, Throwable t) {
-//            SocializeUtils.safeCloseDialog(dialog);
-//            Toast.makeText(LoginActivity.this, "失败：" + t.getMessage(), Toast.LENGTH_LONG).show();
-//        }
-//
-//        @Override
-//        public void onCancel(SHARE_MEDIA platform, int action) {
-//            SocializeUtils.safeCloseDialog(dialog);
-//            Toast.makeText(LoginActivity.this, "取消了", Toast.LENGTH_LONG).show();
-//        }
-//    };
+    UMAuthListener authListener = new UMAuthListener() {
+
+        @Override
+        public void onStart(SHARE_MEDIA platform) {
+            SocializeUtils.safeShowDialog(dialog);
+        }
+
+        @Override
+        public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
+            SocializeUtils.safeCloseDialog(dialog);
+            Toast.makeText(LoginActivity.this, "成功了", Toast.LENGTH_LONG).show();
+            Set<String> keySet = data.keySet();
+            String s;
+            for (String key : keySet) {
+                s = data.get(key);
+                Log.i("===========", s);
+            }
+            String names = data.get("names");
+            String iconurl = data.get("iconurl");
+            Log.i("==", names + iconurl);
+            Intent in = getIntent();
+            in.putExtra("names", names);
+            setResult(10, in);
+            finish();
+
+        }
+
+        @Override
+        public void onError(SHARE_MEDIA platform, int action, Throwable t) {
+            SocializeUtils.safeCloseDialog(dialog);
+            Toast.makeText(LoginActivity.this, "失败：" + t.getMessage(), Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onCancel(SHARE_MEDIA platform, int action) {
+            SocializeUtils.safeCloseDialog(dialog);
+            Toast.makeText(LoginActivity.this, "取消了", Toast.LENGTH_LONG).show();
+        }
+    };
 
     @Override
     public void setLogin(LoginEntity login) {

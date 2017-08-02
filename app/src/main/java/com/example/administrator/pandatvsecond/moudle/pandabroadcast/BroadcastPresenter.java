@@ -23,7 +23,7 @@ public class BroadcastPresenter implements BroadcastContract.Presenter {
 
     @Override
     public void start() {
-
+        broadcastView.showProgress();
         broadcastMoudle.setBroadcast(new MyCallBack<BroadcastBean>() {
             @Override
             public void onSuccess(Drawable drawable) {
@@ -33,6 +33,7 @@ public class BroadcastPresenter implements BroadcastContract.Presenter {
             @Override
             public void onSusses(BroadcastBean broadcastBean) {
                 broadcastView.setResult(broadcastBean);
+                broadcastView.dismissProgress();
             }
 
             @Override

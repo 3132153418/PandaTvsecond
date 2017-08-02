@@ -27,34 +27,39 @@ public class LiveChinaPresenter implements LiveChinaContract.livechinaPresenter 
         livechinaview.setPresenter(this);
         liveChinaMoudle = new LiveChinaMoudleIpl();
     }
+
     @Override
     public void start() {
+        livechinaview.showProgress();
         PopupBean popupbean = (PopupBean) aCache.getAsObject("PopupBean");
-if(popupbean==null) {
-    liveChinaMoudle.getLiveChinaTab(new MyCallBack<PopupBean>() {
-        @Override
-        public void onSuccess(Drawable drawable) {
+        if (popupbean == null) {
+            liveChinaMoudle.getLiveChinaTab(new MyCallBack<PopupBean>() {
+                @Override
+                public void onSuccess(Drawable drawable) {
 
+                }
+
+                @Override
+                public void onSusses(PopupBean popupBean) {
+                    livechinaview.getChinaLiveTab(popupBean);
+                    livechinaview.dismissProgress();
+                    MineLog.d("直播中国bean", popupBean.getAlllist().get(0).getTitle());
+                }
+
+                @Override
+                public void onsusses(String string) {
+
+                }
+
+                @Override
+                public void onError(String msg) {
+
+                }
+            });
+        } else{
+            livechinaview.getChinaLiveTab(popupbean);
+            livechinaview.dismissProgress();
         }
-
-        @Override
-        public void onSusses(PopupBean popupBean) {
-            livechinaview.getChinaLiveTab(popupBean);
-            MineLog.d("直播中国bean",popupBean.getAlllist().get(0).getTitle());
-        }
-
-        @Override
-        public void onsusses(String string) {
-
-        }
-
-        @Override
-        public void onError(String msg) {
-
-        }
-    });
-}else
-    livechinaview.getChinaLiveTab(popupbean);
 
     }
 }

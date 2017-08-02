@@ -1,6 +1,5 @@
 package com.example.administrator.pandatvsecond.moudle.pandabroadcast;
 
-import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +10,11 @@ import com.androidkun.PullToRefreshRecyclerView;
 import com.androidkun.callback.PullToRefreshListener;
 import com.bumptech.glide.Glide;
 import com.example.administrator.pandatvsecond.R;
-import com.example.administrator.pandatvsecond.activity.video.VideoActivity;
+import com.example.administrator.pandatvsecond.app.App;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
 import com.example.administrator.pandatvsecond.model.bean.BroadcastBean;
 import com.example.administrator.pandatvsecond.moudle.pandabroadcast.adapter.BroadcastAdapter;
+import com.example.administrator.pandatvsecond.widget.manager.LoadingDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,12 +63,12 @@ public class BroadcastFragment extends BaseFragment implements BroadcastContract
 
     @Override
     public void showProgress() {
-
+        LoadingDialog.show(App.context);
     }
 
     @Override
     public void dismissProgress() {
-
+        LoadingDialog.dimiss();
     }
 
     @Override

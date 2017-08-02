@@ -28,6 +28,7 @@
             android:textStyle="bold"
             />
     </RelativeLayout>
+
     <LinearLayout
         android:layout_marginTop="10dp"
         android:background="#f9f8f8"

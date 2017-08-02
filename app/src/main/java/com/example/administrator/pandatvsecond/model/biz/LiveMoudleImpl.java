@@ -1,17 +1,13 @@
 package com.example.administrator.pandatvsecond.model.biz;
 
 import com.example.administrator.pandatvsecond.config.Urls;
-import com.example.administrator.pandatvsecond.model.bean.EspeciallyShowBean;
-import com.example.administrator.pandatvsecond.model.bean.GGShowBean;
-import com.example.administrator.pandatvsecond.model.bean.GoodTimeBean;
-import com.example.administrator.pandatvsecond.model.bean.LiveFragmentBean;
-import com.example.administrator.pandatvsecond.model.bean.MoreEyeBean;
-import com.example.administrator.pandatvsecond.model.bean.NoBearBean;
-import com.example.administrator.pandatvsecond.model.bean.OriginalNewsBean;
-import com.example.administrator.pandatvsecond.model.bean.PandaFileBean;
-import com.example.administrator.pandatvsecond.model.bean.PandaTopBean;
-import com.example.administrator.pandatvsecond.model.bean.WatchTalkBean;
+import com.example.administrator.pandatvsecond.model.bean.live.AllLiveFragmentBean;
+import com.example.administrator.pandatvsecond.model.bean.live.LiveCommonBean;
+import com.example.administrator.pandatvsecond.model.bean.live.LiveFragmentBean;
+import com.example.administrator.pandatvsecond.model.bean.live.MoreEyeBean;
+import com.example.administrator.pandatvsecond.model.bean.live.WatchTalkBean;
 import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
+import com.example.administrator.pandatvsecond.util.MineLog;
 
 /**
  * Created by Administrator on 2017/7/29.
@@ -20,8 +16,13 @@ import com.example.administrator.pandatvsecond.net.callback.MyCallBack;
 public class LiveMoudleImpl implements LiveMoudle {
 
     @Override
-    public void loadLiveData(MyCallBack<LiveFragmentBean> callBack) {
-            ihttp.get(Urls.PANDALIVE,null,callBack);
+    public void loadLiveData(MyCallBack<AllLiveFragmentBean> callBack) {
+            ihttp.get(Urls.LIVEFRAGMENTDATA,null,callBack);
+    }
+
+    @Override
+    public void loadSmallLiveFragmentData(String url, MyCallBack<LiveFragmentBean> callBack) {
+            ihttp.get(url,null,callBack);
     }
 
     @Override
@@ -35,44 +36,11 @@ public class LiveMoudleImpl implements LiveMoudle {
     }
 
     @Override
-    public void loadGoodTimeBeanData(MyCallBack<GoodTimeBean> callBack) {
-        ihttp.get(Urls.GOODTIME,null,callBack);
+    public void loadLiveCommonBeanData(String vsid, int page, MyCallBack<LiveCommonBean> callBack) {
+        String url = Urls.LIVE_COMMON_START + vsid + Urls.LIVE_COMMON_END + page;
+        MineLog.d("bug",url);
+        ihttp.get(url,null,callBack);
     }
 
-    @Override
-    public void loadNoBeerBeanData( MyCallBack<NoBearBean> callBack) {
-        ihttp.get(Urls.DXBR,null,callBack);
-    }
-
-    @Override
-    public void loadGGShowBeanData( MyCallBack<GGShowBean> callBack) {
-        ihttp.get(Urls.CMGGSHOW,null,callBack);
-    }
-
-    @Override
-    public void loadPandaFileData( MyCallBack<PandaFileBean> callBack) {
-        ihttp.get(Urls.XMDA,null,callBack);
-    }
-
-    @Override
-    public void loadPandaTopBeanData(MyCallBack<PandaTopBean> callBack) {
-        ihttp.get(Urls.XMTOPBANG,null,callBack);
-    }
-
-    @Override
-    public void loadPandaThingsBeanData( MyCallBack<NoBearBean> callBack) {
-        //熊猫那些事使用当熊不让的数据
-        ihttp.get(Urls.DXBR,null,callBack);
-    }
-
-    @Override
-    public void loadEspeciallyShowBeanData(MyCallBack<EspeciallyShowBean> callBack) {
-        ihttp.get(Urls.TBJM,null,callBack);
-    }
-
-    @Override
-    public void loadOriginalNewsBeanData( MyCallBack<OriginalNewsBean> callBack) {
-        ihttp.get(Urls.YCXW,null,callBack);
-    }
 
 }

@@ -4,19 +4,17 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.administrator.pandatvsecond.moudle.pandalive.common.LiveBaseFragment;
-
 import java.util.ArrayList;
 
 /**
  * Created by lenovo on 2017/7/31.
  */
 
-public class LiveFragmentAdapter extends FragmentPagerAdapter{
-    private static final int PAGE_COUNT = 9;
-    private ArrayList<LiveBaseFragment> liveBaseFragments;
+public class LiveFragmentAdapter extends FragmentPagerAdapter {
+    public static final int PAGE_COUNT = 9;
+    private ArrayList<Fragment> liveBaseFragments;
 
-    public LiveFragmentAdapter(FragmentManager fm,ArrayList<LiveBaseFragment> liveBaseFragments) {
+    public LiveFragmentAdapter(FragmentManager fm,ArrayList<Fragment> liveBaseFragments) {
         super(fm);
         this.liveBaseFragments = liveBaseFragments;
     }
@@ -33,7 +31,6 @@ public class LiveFragmentAdapter extends FragmentPagerAdapter{
 
     @Override
     public CharSequence getPageTitle(int position) {
-
         switch (position) {
             case 0:
                 return "直播";

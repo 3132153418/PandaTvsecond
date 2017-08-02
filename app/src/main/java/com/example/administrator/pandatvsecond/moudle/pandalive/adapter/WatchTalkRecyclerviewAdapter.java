@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.administrator.pandatvsecond.R;
-import com.example.administrator.pandatvsecond.model.bean.WatchTalkBean;
+import com.example.administrator.pandatvsecond.model.bean.live.WatchTalkBean;
 
 import java.text.SimpleDateFormat;
 import java.util.List;

@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.example.administrator.pandatvsecond.R;
 import com.example.administrator.pandatvsecond.base.BaseFragment;
-import com.example.administrator.pandatvsecond.model.bean.WatchTalkBean;
+import com.example.administrator.pandatvsecond.model.bean.live.WatchTalkBean;
 import com.example.administrator.pandatvsecond.moudle.pandalive.adapter.WatchTalkRecyclerviewAdapter;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 

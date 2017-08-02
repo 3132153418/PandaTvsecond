@@ -14,6 +14,7 @@ import com.example.administrator.pandatvsecond.model.bean.GGbean;
 import com.example.administrator.pandatvsecond.moudle.pandagg.adapter.GGAdapter;
 import com.example.administrator.pandatvsecond.moudle.pandagg.adapter.GlideImageLoader;
 import com.example.administrator.pandatvsecond.util.MineLog;
+import com.example.administrator.pandatvsecond.widget.manager.LoadingDialog;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 
@@ -70,7 +71,7 @@ public class GGFragment extends BaseFragment implements GGContract.View {
                 }, 2000);
             }
         });
-        View inflate = View.inflate(getContext(), R.layout.gg_header, null);
+        View inflate = View.inflate(getActivity(), R.layout.gg_header, null);
         bannerheader = (Banner) inflate.findViewById(R.id.gg_banner);
         ggPull.addHeaderView(inflate);
     }
@@ -111,11 +112,8 @@ public class GGFragment extends BaseFragment implements GGContract.View {
         //banner设置方法全部调用完毕时最后调用
         bannerheader.start();
 
-
-
-
         gglist.addAll(gGbean.getList());
-        ggAdapter = new GGAdapter(getContext(), gglist);
+        ggAdapter = new GGAdapter(getActivity(), gglist);
 
         MineLog.d("ggadapter", gglist.toString());
         ggPull.setAdapter(ggAdapter);
@@ -126,12 +124,12 @@ public class GGFragment extends BaseFragment implements GGContract.View {
 
     @Override
     public void showProgress() {
-
+        LoadingDialog.show(getActivity());
     }
 
     @Override
     public void dismissProgress() {
-
+        LoadingDialog.dimiss();
     }
 
     @Override
