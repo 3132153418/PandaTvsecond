@@ -30,7 +30,7 @@ public class OriginalActivity extends BaseActivity implements OriginalContract.V
     @Override
     protected int getLauoutId() {
         return R.layout.activity_original;
-//       测试一下能不能上传
+
     }
 
     @Override
