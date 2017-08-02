@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\lenovo\Desktop\PandaTvsecond\PushSDK\src\main\shaders"/></dataSet><dataSet config="debug"><source path="C:\Users\lenovo\Desktop\PandaTvsecond\PushSDK\build-types\debug\shaders"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="D:\jiyun\SongYunXing\PandaTvsecond\PushSDK\src\main\shaders"/></dataSet><dataSet config="debug"><source path="D:\jiyun\SongYunXing\PandaTvsecond\PushSDK\build-types\debug\shaders"/></dataSet></merger>

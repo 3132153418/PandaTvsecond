@@ -13,7 +13,6 @@ import android.widget.EditText;
 import com.example.administrator.pandatvsecond.R;
 
 
-/**是否多少个 */
 
 public class AmendEditText extends EditText implements View.OnFocusChangeListener, TextWatcher {
     //EditText右侧的删除按钮
