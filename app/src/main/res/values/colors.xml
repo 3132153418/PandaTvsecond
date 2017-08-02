@@ -7,5 +7,6 @@
     <color name="white">#F9F9FF</color>
     <color name="textcolor">#518CF4</color>
     <color name="tabcolor">#2B39F4</color>
+    <color name="black">#353535</color>
     <color name="pandapagertextcolor">#F48CE0</color>
 </resources>

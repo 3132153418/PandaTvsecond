@@ -1,4 +1,4 @@
-package com.example.administrator.pandatvsecond.widget.manager;
+package com.example.administrator.pandatvsecond.config;
 
 /**
  * Created by lenovo on 2017/7/31.

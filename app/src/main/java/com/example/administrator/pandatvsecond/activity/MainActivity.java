@@ -21,7 +21,7 @@ import com.example.administrator.pandatvsecond.widget.manager.ToastManager;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-//主界面
+//主界面        修改
 public class MainActivity extends BaseActivity{
     @BindView(R.id.iconImg)
     ImageView iconImg;
@@ -90,6 +90,7 @@ public class MainActivity extends BaseActivity{
                 startActivity(new Intent(MainActivity.this, PersonCenterActivity.class));
                 break;
             case R.id.hudongImg:
+
                 break;
             case R.id.shouye:
                 showTitle(null,HOMETYPE);

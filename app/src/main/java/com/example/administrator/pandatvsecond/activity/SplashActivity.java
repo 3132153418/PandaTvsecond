@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.administrator.pandatvsecond.R;
-import com.example.administrator.pandatvsecond.activity.adapter.FragmentAdapter;
+import com.example.administrator.pandatvsecond.moudle.pandahome.adapter.FragmentAdapter;
 import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.example.administrator.pandatvsecond.widget.manager.SharedPreferencesManager;
 
@@ -46,19 +46,19 @@ public class SplashActivity extends BaseActivity {
     public void addViewPager(){
 
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
-        ImageView img1 = new ImageView(this);
-        img1.setLayoutParams(params);
-        img1.setImageResource(R.drawable.guide_one);
-        ImageView img2 = new ImageView(this);
-        img2.setLayoutParams(params);
-        img2.setImageResource(R.drawable.guide_two);
-        ImageView img3 = new ImageView(this);
-        img3.setLayoutParams(params);
-        img3.setImageResource(R.drawable.guide_three);
-        img3.setOnClickListener(new View.OnClickListener() {
+        ImageView imgone = new ImageView(this);
+        imgone.setLayoutParams(params);
+        imgone.setImageResource(R.drawable.guide_one);
+        ImageView imgtwo= new ImageView(this);
+        imgtwo.setLayoutParams(params);
+        imgtwo.setImageResource(R.drawable.guide_two);
+        ImageView imgthree = new ImageView(this);
+        imgthree.setLayoutParams(params);
+        imgthree.setImageResource(R.drawable.guide_three);
+        imgthree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferencesManager.saveUserInfo("uid");
+                SharedPreferencesManager.saveSplashInfo("uid");
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
@@ -66,9 +66,9 @@ public class SplashActivity extends BaseActivity {
         });
 
 
-        list.add(img1);
-        list.add(img2);
-        list.add(img3);
+        list.add(imgone);
+        list.add(imgtwo);
+        list.add(imgthree);
 
     }
 

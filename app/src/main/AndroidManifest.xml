@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.pandatvsecond">
-    <uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
@@ -88,6 +88,19 @@
         <!--<meta-data  android:name="UMENG_APPKEY" android:value="597ee242bbea837f85001a2f"/>-->
         <!--<meta-data android:value="Channel ID" android:name="UMENG_CHANNEL"/>-->
 
+        <activity android:name=".activity.PersonCenterActivity"/>
+        <activity android:name=".moudle.mine.login.LoginActivity"/>
+ <activity android:name=".activity.RegisterActivity"/>
+        <activity android:name=".activity.PersonAgreeActivity"/>
+        <activity android:name=".moudle.mine.pwd.PassWordActivity"/>
+    <activity android:name=".moudle.mine.collect.ShouCangActivity"/>
+        <activity android:name=".activity.GeRenXinXiActivity"/>
+        <activity android:name=".moudle.mine.history.HistoryActivity"/>
+        <activity android:name=".activity.SettingActivity"/>
+        <activity android:name=".activity.PersonhelpActivity"/>
+        <activity android:name=".activity.AboutActivity"/>
+        <activity android:name=".activity.XiuGaiNameActivity"/>
+        <!--<activity android:name=".activity.LoginSuccessActivity"/>-->
 
     </application>
 
