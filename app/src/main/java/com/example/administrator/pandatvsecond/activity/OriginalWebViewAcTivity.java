@@ -3,9 +3,6 @@ package com.example.administrator.pandatvsecond.activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -15,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.administrator.pandatvsecond.R;
+import com.example.administrator.pandatvsecond.base.BaseActivity;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.UMShareListener;
@@ -22,13 +20,12 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.media.UMImage;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
  * Created by lenovo on 2017/7/21.
  */
-public class OriginalWebViewAcTivity extends AppCompatActivity {
+public class OriginalWebViewAcTivity extends BaseActivity {
     @BindView(R.id.original_web_back)
     ImageView originalWebBack;
     @BindView(R.id.original_web)
@@ -44,11 +41,11 @@ public class OriginalWebViewAcTivity extends AppCompatActivity {
     private String imageurl;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.original_webview);
-
-        ButterKnife.bind(this);
+    protected int getLauoutId() {
+        return R.layout.original_webview;
+    }
+    @Override
+    protected void initView() {
         url = getIntent().getStringExtra("url");
         title = getIntent().getStringExtra("title");
         imageurl = getIntent().getStringExtra("image");
@@ -85,6 +82,12 @@ public class OriginalWebViewAcTivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void loadData() {
+
+    }
+
+
 
     @OnClick({R.id.original_web_back, R.id.original_share})
     public void onViewClicked(View view) {
@@ -122,28 +125,6 @@ public class OriginalWebViewAcTivity extends AppCompatActivity {
                         })
                         .open();
                 break;
-            //            case R.id.original_shoucang:
-//                if (isCollect) {
-//                    originalShoucang.setBackgroundResource(R.drawable.collect_no);
-//                    isCollect = false;
-//                    Toast toast = Toast.makeText(OriginalWebViewAcTivity.this, "恭喜您收藏成功啦", Toast.LENGTH_SHORT);
-//                    toast.setGravity(Gravity.CENTER, 0, 0);
-//                    View inflate = View.inflate(OriginalWebViewAcTivity.this, R.layout.item_toast, null);
-//                    ((TextView) inflate.findViewById(R.id.tv_toast)).setText("已取消收藏");
-//                    toast.setView(inflate);
-//                    toast.show();
-//                }else {
-//                    originalShoucang.setBackgroundResource(R.drawable.collect_yes);
-//                    isCollect = true;
-//                    Toast toast = Toast.makeText(OriginalWebViewAcTivity.this, "恭喜您收藏成功啦", Toast.LENGTH_SHORT);
-//                    toast.setGravity(Gravity.CENTER, 0, 0);
-//                    View inflate = View.inflate(OriginalWebViewAcTivity.this, R.layout.item_toast, null);
-//                    ((TextView) inflate.findViewById(R.id.tv_toast)).setText("已添加，请到[我的收藏]中查看");
-//                    toast.setView(inflate);
-//                    toast.show();
-//                }
-//
-//                break;
         }
     }
 
